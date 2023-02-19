@@ -1,12 +1,13 @@
 import Button from '../components/Button'
 import Input from '../components/Input'
+import { loginRequest } from '../services/auth'
 
 function LoginPage () {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const email = e.currentTarget[0].value
     const password = e.currentTarget[1].value
-    console.log({ email, password })
+    await loginRequest({ email, password })
   }
 
   return (

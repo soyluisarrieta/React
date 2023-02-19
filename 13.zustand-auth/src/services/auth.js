@@ -1,5 +1,9 @@
-import axios from 'axios'
+import axiosApi from '../lib/axios.js'
+
+export const csrf = async () => axiosApi.get('/sanctum/csrf-cookie')
 
 export const loginRequest = async ({ email, password }) => {
-  return axios.post('http://localhost:8000/login')
+  await csrf()
+  const payload = { email, password }
+  return axiosApi.post('/login', payload)
 }
