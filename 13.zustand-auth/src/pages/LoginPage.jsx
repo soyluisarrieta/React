@@ -1,13 +1,23 @@
 import Button from '../components/Button'
 import Input from '../components/Input'
-import { loginRequest } from '../services/auth'
+import { csrf, loginRequest, profileRequest } from '../services/auth'
+import { useAuthStore } from '../store/auth'
 
 function LoginPage () {
+  const setUser = useAuthStore(state => state.setUser)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const email = e.currentTarget[0].value
     const password = e.currentTarget[1].value
-    await loginRequest({ email, password })
+    try {
+      await csrf()
+      await loginRequest({ email, password })
+      const response = await profileRequest()
+      setUser(response.data)
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   return (
