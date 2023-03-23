@@ -3,7 +3,7 @@ import Input from '../components/Input'
 import { csrf, loginRequest, profileRequest } from '../services/auth'
 import { useAuthStore } from '../store/auth'
 
-function LoginPage () {
+function RegisterPage () {
   const setUser = useAuthStore(state => state.setUser)
 
   const handleSubmit = async (e) => {
@@ -23,13 +23,16 @@ function LoginPage () {
   return (
     <main className='min-h-screen h-full p-5 flex justify-center items-center'>
       <form className='max-w-md w-full h-fit mx-auto p-16 flex flex-col gap-2 bg-slate-800/10 rounded-3xl shadow-lg shadow-slate-950/70' onSubmit={handleSubmit}>
-        <h1 className='text-3xl sm:text-4xl font-semibold text-slate-200 mb-3 text-center'>Login</h1>
+        <h1 className='text-3xl sm:text-4xl font-semibold text-slate-200 mb-3 text-center'>Register</h1>
+        <Input type='name' name='name' placeholder='name' />
+        <Input type='lastname' name='lastname' placeholder='lastname' />
         <Input type='email' name='email' placeholder='email@mail.com' />
         <Input type='password' name='passowrd' placeholder='********' />
-        <Button type='submit'>Login</Button>
+        <Input type='passwordConfirmation' name='passowrdConfirmation' placeholder='********' />
+        <Button type='submit'>Regiter</Button>
       </form>
     </main>
   )
 }
 
-export default LoginPage
+export default RegisterPage
