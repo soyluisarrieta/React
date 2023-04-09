@@ -27,6 +27,26 @@ button.addEventListener('click' fubction() {
 })
 ```
 
+### Ejemplo:
+
+#### Imperativo:
+
+```javascript
+  // Se pide que cree un botón
+  createButton(){
+    ...
+  }
+```
+
+#### Declarativo:
+
+```javascript
+  // Se describe que es un botón
+  Button(){
+    ...
+  }
+```
+
 ### React CDN (Es imperativo)
 
 Siendo React una biblioteca, es posible importarlo en cualquier sitio web creando la raíz del proyecto o componente utilizando un CDN de ReactDOM
@@ -114,6 +134,21 @@ const div = React.createElement(React.Fragment, null, [
 
 ### React JSX (es declarativo)
 
+Para hacer que el código sea más legible y declarativo, se usa la sintaxis de JSX que se asemeja a HTML pero NO es HTML, es JSX que será compilado a JS imperativo. El ejemplo anterior de los 3 botones se vería así:
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.Fragment>
+    <button>Botón 1</button>
+    <button>Botón 2</button>
+    <button>Botón 3</button>
+  </React.Fragment>
+);
+```
+
 ## Crear un proyecto
 
 [create-react-app](https://create-react-app.dev/) es la forma oficial para crear un proyecto de React pero se ha estado quedando atras y ha salido una mejor alternativa mucho más rápida y actualizada.
@@ -123,5 +158,25 @@ const div = React.createElement(React.Fragment, null, [
 [Vite](https://vitejs.dev/) es un empaquetador de aplicaciones web compatible con React, Vue, Angular, etc...
 
 ```bash
-
+  npm create vite@latest
 ```
+
+Los pasos que hay que seguir son:
+
+1. Nombre del proyecto.
+2. React
+3. Javascript + SWC
+
+Una vez generado es necesario instalar las dependencia que generó Vite con:
+
+```bash
+npm install
+```
+
+Y para ejecutar el servidor:
+
+```bash
+npm run dev
+```
+
+## Componetización
