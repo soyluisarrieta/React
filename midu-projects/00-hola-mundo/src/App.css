@@ -40,3 +40,54 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Mis estilos */
+article {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: .8rem;
+  text-align: left; 
+}
+
+article strong {
+  font-size: .9rem;
+}
+
+article header {
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+article header div {
+  display: flex;
+  flex-direction: column;
+}
+
+article header span {
+  opacity: .6;
+}
+
+article img {
+  width: 48px;
+  height: 48px;
+  border-radius: 1000px;
+}
+
+article button {
+  cursor: pointer;
+  margin-left: 16px;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: bold;
+  background-color: #f6f6f6;
+  color: #222222;
+  transition: .3s ease background-color;
+}
+
+article button:hover {
+  opacity: .8;
+}

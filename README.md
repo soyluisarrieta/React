@@ -149,6 +149,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 ```
 
+La sintaxis de JSX la veré mediante voy practicando
+
 ## Crear un proyecto
 
 [create-react-app](https://create-react-app.dev/) es la forma oficial para crear un proyecto de React pero se ha estado quedando atras y ha salido una mejor alternativa mucho más rápida y actualizada.
@@ -180,3 +182,90 @@ npm run dev
 ```
 
 ## Componetización
+
+Antes que nada, **es muy importante de que el nombre de los componentes sean PascalCase**. Existen otros tipos como:
+
+- PascalCase: La primera letra de cada palabra es mayúscula
+- cameCase: La primera letra de cada palabra es mayúscula excepto la primera palabra
+- snake_case: Todo en minúsculas pero separados por guión bajo
+- kebab-case: Todo en minúculas pero separado por guiones
+
+### Crear componente
+
+Por defecto Vite nos genera un componente en el archivo "./src/App.jsx", pero un componente es básicamente esto:
+
+```javascript
+export function App() {
+  return (
+    <React.Fragment>
+      <button>Botón 1</button>
+      <button>Botón 2</button>
+      <button>Botón 3</button>
+    </React.Fragment>
+  );
+}
+```
+
+Se exporta la función que retorna todo el componente pero también se puede hacer de la siguiente manera:
+
+```javascript
+function App() {
+  return (
+    <React.Fragment>
+      <button>Botón 1</button>
+      <button>Botón 2</button>
+      <button>Botón 3</button>
+    </React.Fragment>
+  );
+}
+
+export default App;
+```
+
+Este componente se puede importar en los lugares donde queremos renderizar el componente, como por ejemplo en la raíz que se encuentra en "./src/main.jsx":
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+// Se importa
+import App from './App';
+
+// Se renderiza
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+```
+
+## Estilos
+
+### En linea
+
+No es posible añadir estilos en el atributo style como se hace en html :
+
+```html
+<button style="background: blue; color: white;">Like</button>
+```
+
+En JSX, los estilos no pueden ser de tipo string sino un objeto:
+
+```javascript
+<button style={{ background: 'blue', color: 'white' }}>Like</button>
+```
+
+Las primeras llaves es para indicar a React que se insertará código de JS en lugar de string, las segundas llaves es para crear el objeto de js.
+
+**Importante:** No usar Kabab-case como por ejemplo `background-color`, en este caso se usa camelCase: `backgroundColor`
+
+### En archivo .css
+
+En este caso se importa al componente en la parte superior:
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+// Importamos estilos globales en el punto de entrada
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+```
