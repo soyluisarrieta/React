@@ -149,6 +149,21 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 ```
 
+Otra forma de renderizar un fragmento de manera más limpia es:
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <>
+    <button>Botón 1</button>
+    <button>Botón 2</button>
+    <button>Botón 3</button>
+  </>
+);
+```
+
 La sintaxis de JSX la veré mediante voy practicando
 
 ## Crear un proyecto
