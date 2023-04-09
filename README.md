@@ -27,7 +27,7 @@ button.addEventListener('click' fubction() {
 })
 ```
 
-## React CDN (Es imperativo)
+### React CDN (Es imperativo)
 
 Siendo React una biblioteca, es posible importarlo en cualquier sitio web creando la raíz del proyecto o componente utilizando un CDN de ReactDOM
 
@@ -110,4 +110,18 @@ const div = React.createElement(React.Fragment, null, [
   button2,
   button3,
 ]);
+```
+
+### React JSX (es declarativo)
+
+## Crear un proyecto
+
+[create-react-app](https://create-react-app.dev/) es la forma oficial para crear un proyecto de React pero se ha estado quedando atras y ha salido una mejor alternativa mucho más rápida y actualizada.
+
+### Vite
+
+[Vite](https://vitejs.dev/) es un empaquetador de aplicaciones web compatible con React, Vue, Angular, etc...
+
+```bash
+
 ```
