@@ -269,3 +269,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 ```
+
+#### Clases JSX
+
+Como todo el JSX es Javascript, `class` es una palabra reservada del lenguaje, por lo tanto en JSX se debe definir como `className`
