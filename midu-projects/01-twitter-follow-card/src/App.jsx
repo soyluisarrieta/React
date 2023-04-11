@@ -5,8 +5,8 @@ function App() {
 
   return (
     <>
-      <TwitterFollowCard name='Luis Eduardo Arrieta Avilez' userName='SoyLuisArrieta'/>
-      <TwitterFollowCard name='Miguel Angel Durán' userName='midudev'/>
+      <TwitterFollowCard userName='SoyLuisArrieta'>Luis Eduardo Arrieta Avilez</TwitterFollowCard>
+      <TwitterFollowCard userName='midudev'>Miguel Angel Durán</TwitterFollowCard>
     </>
   )
 }

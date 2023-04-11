@@ -1,6 +1,6 @@
 import '../App.css'
 
-function TwitterFollowCard({userName, name, isFollowing = false}) {
+function TwitterFollowCard({userName, children, isFollowing = false}) {
 
   return (
     <article className="App tw-followCard">
@@ -8,7 +8,7 @@ function TwitterFollowCard({userName, name, isFollowing = false}) {
         <img className='tw-followCard-avatar' src={`https://unavatar.io/${userName}`} alt={`Avatar de ${name}`} />
 
         <div className='tw-followCard-info'>
-          <strong>{name}</strong>
+          <strong>{children}</strong>
           <span className='tw-followCard-infoUserName'>@{userName}</span>
         </div>
       </header>
