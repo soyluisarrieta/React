@@ -285,6 +285,42 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 ```
 
-#### Clases JSX
+#### Clases en JSX
 
 Como todo el JSX es Javascript, `class` es una palabra reservada del lenguaje, por lo tanto en JSX se debe definir como `className`
+
+#### Enviar y recibir propiedades
+
+```javascript
+<Button btnLabel='Aceptar'>
+```
+
+```javascript
+function Button({ btnLabel }) {
+  return (
+    <React.Fragment>
+      <button>{btnLabel}</button>
+    </React.Fragment>
+  );
+}
+
+export default Button;
+```
+
+#### La propiedad Children
+
+```javascript
+<Button>Aceptar</Button>
+```
+
+```javascript
+function Button({ children }) {
+  return (
+    <React.Fragment>
+      <button>{children}</button>
+    </React.Fragment>
+  );
+}
+
+export default Button;
+```
