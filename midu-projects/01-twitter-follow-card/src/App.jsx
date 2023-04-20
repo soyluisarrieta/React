@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <TwitterFollowCard userName='SoyLuisArrieta'>Luis Eduardo Arrieta Avilez</TwitterFollowCard>
+      <TwitterFollowCard userName='SoyLuisArrieta' isFollowed>Luis Eduardo Arrieta Avilez</TwitterFollowCard>
       <TwitterFollowCard userName='midudev'>Miguel Angel Durán</TwitterFollowCard>
     </>
   )
