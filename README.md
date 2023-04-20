@@ -289,6 +289,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
 Como todo el JSX es Javascript, `class` es una palabra reservada del lenguaje, por lo tanto en JSX se debe definir como `className`
 
+#### Eventos en JSX
+
+**OnClick:** Se ejecuta algo cuando se ejecuta el evento click declarado en el elemento
+
+```javascript
+<button onClick={() => console.log('Click!')}></button>
+```
+
 #### Enviar y recibir propiedades
 
 ```javascript
@@ -319,6 +327,59 @@ function Button({ children }) {
     <React.Fragment>
       <button>{children}</button>
     </React.Fragment>
+  );
+}
+
+export default Button;
+```
+
+## Los Hooks en React
+
+### useState
+
+Permite a React crear una variable que puede cambiar su estado. Los hooks deben ser importados y creados de la siguiente manera:
+
+```javascript
+import { useState } from 'react'
+
+export funtion TwitterFollowCard() {
+  const state = useState(false) // Devuelve un arreglo y se puede inicializar, en este caso en false
+
+  const isFollowing = state[0] // 1. Almacena el estado actual
+  const setIsFollowing = state[1] // 2. Función para cambiar el estado
+  ...
+}
+```
+
+La manera más común de crear un estado es de la siguiente manera:
+
+```javascript
+import { useState } from 'react'
+
+export funtion TwitterFollowCard() {
+  const [isFollowing, setIsFollowing] = useState(false)
+  ...
+}
+```
+
+## Renderizado de listas
+
+Gracias a que en React todo es Javascript, podemos utilizar métodos que nos permitan recorrer objetos, arrays, etc...
+
+```javascript
+function ButtonList() {
+  const buttons = [
+    { text: 'Button 1' },
+    { text: 'Button 2' },
+    { text: 'Button 3' },
+    { text: 'Button 4' },
+  ];
+  return (
+    <>
+      {buttons.map((button) => (
+        <button>{button.text}</button>
+      ))}
+    </>
   );
 }
 
