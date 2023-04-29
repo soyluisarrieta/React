@@ -334,6 +334,30 @@ function Button({ children }) {
 export default Button;
 ```
 
+## Renderizado de listas
+
+Gracias a que en React todo es Javascript, podemos utilizar métodos que nos permitan recorrer objetos, arrays, etc...
+
+```javascript
+function ButtonList() {
+  const buttons = [
+    { text: 'Button 1' },
+    { text: 'Button 2' },
+    { text: 'Button 3' },
+    { text: 'Button 4' },
+  ];
+  return (
+    <>
+      {buttons.map((button) => (
+        <button>{button.text}</button>
+      ))}
+    </>
+  );
+}
+
+export default Button;
+```
+
 ## Los Hooks en React
 
 ### useState
@@ -363,26 +387,4 @@ export funtion TwitterFollowCard() {
 }
 ```
 
-## Renderizado de listas
-
-Gracias a que en React todo es Javascript, podemos utilizar métodos que nos permitan recorrer objetos, arrays, etc...
-
-```javascript
-function ButtonList() {
-  const buttons = [
-    { text: 'Button 1' },
-    { text: 'Button 2' },
-    { text: 'Button 3' },
-    { text: 'Button 4' },
-  ];
-  return (
-    <>
-      {buttons.map((button) => (
-        <button>{button.text}</button>
-      ))}
-    </>
-  );
-}
-
-export default Button;
-```
+### useEffect
