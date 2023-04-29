@@ -388,3 +388,18 @@ export funtion TwitterFollowCard() {
 ```
 
 ### useEffect
+
+Permite ejecutar código arbitrario cuando el componente es renderizado y opcionalmente cada vez que cambia una alguna dependencia establecida
+
+```javascript
+import { useState } from 'react';
+
+useEffect(() => {
+  document.body.classList.toggle('bg-red-500', dependency);
+
+  // Cleanup
+  return () => {
+    document.body.classList.remove('bg-red-500');
+  };
+}, [dependency]);
+```

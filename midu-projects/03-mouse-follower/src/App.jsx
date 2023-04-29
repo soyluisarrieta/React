@@ -25,7 +25,7 @@ const FollowMouse = () => {
     return () => {
       document.body.classList.remove('no-cursor')
     }
-  })
+  }, [enabled])
 
   
   return (
