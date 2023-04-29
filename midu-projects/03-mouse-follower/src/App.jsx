@@ -1,33 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+const FollowMouse = () => {
+  const [enabled, setEnabled] = useState(false)
+  const [position, setPosition] = useState({x: 0, y: 0})
 
+  useEffect(() => {
+    const handleMove = (event) => {
+      const { clientX, clientY } = event
+      setPosition({ x: clientX, y: clientY})
+    }
+
+    if (enabled) {
+      window.addEventListener("pointermove", handleMove)
+    }
+
+    return () => {
+      window.addEventListener('pointermove', handleMove)
+    }
+  }, [enabled]) 
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <button onClick={() => setEnabled(!enabled)}>
+        {enabled ? 'Desactivar' : 'Activar'} seguir puntero
+      </button>
+
+      <div style={{
+        position: 'absolute',
+        backgroundColor: '#09f',
+        borderRadius: '50%',
+        opacity: 0.8,
+        pointerEvents: 'none',
+        left: -20,
+        top: -20,
+        width: 40,
+        height: 40,
+        transform: `translate(${position.x}px, ${position.y}px)`
+      }}>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <>
+      <FollowMouse />
     </>
   )
 }
