@@ -1,6 +1,6 @@
 # Mis notas
 
-Curso: [Aprendiendo React](https://github.com/midudev/aprendiendo-react)
+Curso: [Aprendiendo React](https://github.com/midudev/aprendiendo-react)  
 Autor del curso: [Miguel Angel Durán](https://youtu.be/7iobxzd_2wY)
 
 ## ¿Qué es React?
