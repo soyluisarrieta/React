@@ -1,32 +1,17 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-
-const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
-const PREFIX_IMAGE_URL = 'https://fakeimg.pl/500x500/282828/eae0d0/?font_size=70&text='
+import { useCatFact } from './hooks/useCatFact'
+import { useCatImage } from './hooks/useCatImage'
 
 export function App () {
-  const [fact, setFact] = useState()
-  const [imageUrl, setImageUrl] = useState()
-
-  // Obtener fact
-  useEffect(() => {
-    fetch(CAT_ENDPOINT_RANDOM_FACT)
-      .then(res => res.json())
-      .then(data => setFact(data.fact))
-  }, [])
-
-  // Obtener primeras 3 palabras
-  useEffect(() => {
-    if (!fact) return
-    const threeFirstWords = fact.split(' ', 3).join(' ')
-    setImageUrl(threeFirstWords)
-  }, [fact])
+  const { fact, refreshFact } = useCatFact()
+  const { imageUrl } = useCatImage({ fact })
 
   return (
     <main>
       <h1>Hi</h1>
       {fact && <p>{fact}</p>}
-      {imageUrl && <img src={PREFIX_IMAGE_URL + imageUrl} alt={`Image extracted using the first three words for ${fact}`} />}
+      {imageUrl && <img src={imageUrl} alt={`Image extracted using the first three words for ${fact}`} />}
+      <button onClick={refreshFact}>Get new fact</button>
     </main>
   )
 }
