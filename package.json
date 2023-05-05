@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "canvas-confetti": "1.6.0"
+  },
+  "devDependencies": {
+    "standard": "^17.0.0"
   }
 }
