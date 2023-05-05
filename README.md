@@ -387,6 +387,16 @@ export funtion TwitterFollowCard() {
 }
 ```
 
+> ### ❗ **IMPORTANTE** 
+> 
+> Los Setters deben ser algo interno del componente, esta es una práctica muy común y en general es una mala práctica enviarlo a un componente o función. En su lugar, se recomienda pasar la función de actualización de estado como prop a través de los componentes padres.
+> 
+> **La razón principal** es que, al pasar el setter directamente a un componente hijo, ese componente puede actualizar el estado sin pasar por los componentes intermedios. Esto puede hacer que sea más difícil de rastrear y depurar problemas en la lógica del estado.
+> 
+> Además, pasar el setter directamente a un componente hijo puede hacer que ese componente sea demasiado dependiente del estado y, por lo tanto, menos reutilizable. Si en algún momento se desea cambiar la forma en que se maneja el estado, se tendría que hacer cambios en todos los componentes que utilizan el setter directamente.
+> 
+> En lugar de pasar el setter directamente, es mejor pasar una función que actualice el estado a través de los componentes intermedios. De esta manera, se puede controlar mejor la lógica del estado y mantener la flexibilidad y reutilización de los componentes.
+
 ### useEffect
 
 Permite ejecutar código arbitrario cuando el componente es renderizado y opcionalmente cada vez que cambia una alguna dependencia establecida
@@ -403,3 +413,37 @@ useEffect(() => {
   };
 }, [dependency]);
 ```
+
+### useRef
+
+permite crear una referencia mutable que persiste a través de re-renderizaciones y que puede ser utilizada para acceder a un elemento del DOM o para almacenar cualquier otro valor mutable.
+
+```javascript
+import { useRef } from 'react'
+
+function App () {
+  const countRef = useRef(0) // Inicializamos la referencia con el valor 0
+
+  function incrementCount () {
+    countRef.current += 1 // Modificamos el valor de la referencia
+    console.log('countRef:', countRef.current) // Imprimimos el valor actualizado e incrementado
+
+    // -----------------------------
+
+    let autoincrement = 0 // Inicializamos la referencia con el valor 0
+    autoincrement++ // Sumamos +1
+    console.log('i:', autoincrement) // Siempre imprime el valor 1
+
+    console.log('\n\n')
+  }
+
+  return (
+    <div>
+      <button onClick={incrementCount}>Incrementar contador</button>
+    </div>
+  )
+}
+export default App
+```
+
+
