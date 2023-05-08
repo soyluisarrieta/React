@@ -416,7 +416,7 @@ useEffect(() => {
 
 ### useRef
 
-permite crear una referencia mutable que persiste a través de re-renderizaciones y que puede ser utilizada para acceder a un elemento del DOM o para almacenar cualquier otro valor mutable.
+Permite crear una referencia mutable que persiste a través de re-renderizaciones y que puede ser utilizada para acceder a un elemento del DOM o para almacenar cualquier otro valor mutable.
 
 ```javascript
 import { useRef } from 'react'
@@ -446,4 +446,38 @@ function App () {
 export default App
 ```
 
+### useMemo y useCallback
 
+`useMemo` permite memorizar valores calculados y `useCallback` permite memorizar funciones creadas, de tal manera que no se recalcule o vuelva a crear en cada renderizado a menos que sus dependencias cambien. Ambos hooks son utilizados para optimizar el rendimiento de las aplicaciones React.
+
+```javascript
+// Verificar si se realizó una búqueda de películas
+// dependiendo de si 'search' cambia
+const getMovies = useCallback(async ({ search }) => {
+    if (search === previousSearch.current) return
+
+    try {
+      setLoading(true)
+      setError(null)
+      previousSearch.current = search
+      const newMovies = await searchMovies({ search })
+      setMovies(newMovies)
+    } catch (error) {
+      setError(error)
+    } finally {
+      setLoading(false)
+    }
+  }, [])
+```
+
+```javascript
+// Verificar si se debe organizar en orden alfabético las películas
+// Dependiendo si 'sort' o 'movies' cambian
+const sortedMovies = useMemo(() => {
+    return sort
+      ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
+      : movies
+  }, [sort, movies])
+```
+
+> La principal diferencia entre useMemo y useCallback es que useMemo se utiliza para memoizar un valor computado a partir de una función, mientras que useCallback se utiliza para memoizar una función en sí misma.
