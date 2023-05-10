@@ -481,3 +481,31 @@ const sortedMovies = useMemo(() => {
 ```
 
 > La principal diferencia entre useMemo y useCallback es que useMemo se utiliza para memoizar un valor computado a partir de una función, mientras que useCallback se utiliza para memoizar una función en sí misma.
+
+### useId
+
+Permite generar un identificador único y persistente a través de re-renderizaciones, que puede ser utilizado para identificar de forma única un elemento del DOM o cualquier otra entidad mutable en una aplicación.
+
+
+
+```javascript
+
+import { useId } from 'react'
+
+function App () {
+  const minPriceFilterId = useId() // genera la id
+
+  return (
+    <>
+      <label htmlFor={minPriceFilterId}>Price</label>
+        <input
+          id={minPriceFilterId}
+          type='range'
+          min='0'
+          max='1000'
+        />
+    </>
+  )
+}
+
+```
