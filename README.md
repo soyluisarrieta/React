@@ -486,10 +486,7 @@ const sortedMovies = useMemo(() => {
 
 Permite generar un identificador único y persistente a través de re-renderizaciones, que puede ser utilizado para identificar de forma única un elemento del DOM o cualquier otra entidad mutable en una aplicación.
 
-
-
 ```javascript
-
 import { useId } from 'react'
 
 function App () {
@@ -507,5 +504,61 @@ function App () {
     </>
   )
 }
-
 ```
+
+### useContext
+
+Permite acceder y utilizar datos globales compartidos entre componentes, proporcionando una forma sencilla de evitar la prop drilling y mejorar la escalabilidad de la aplicación.
+
+```javascript
+import { createContext, useState } from 'react'
+
+// FiltersContext para consumir el contexto
+export const FiltersContext = createContext()
+
+// FiltersProvider para generar el proveedor de acceso al contexto
+export function FiltersProvider ({ children }) {
+  const [filters, setFilters] = useState({
+    category: 'all',
+    minPrice: 0
+  })
+
+  return (
+    <FiltersContext.Provider value={{
+      filters, setFilters
+    }}
+    >
+      {children}
+    </FiltersContext.Provider>
+  )
+}
+```
+
+Para usar el provider del contexto:
+
+```javascript
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import { FiltersProvider } from './context/filters'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <FiltersProvider>
+    <App />
+  </FiltersProvider>
+)
+```
+
+Para consumir el contexto:
+
+```javascript
+import { useContext } from 'react'
+import { FiltersContext } from '../context/filters'
+
+export function useFilters () {
+  const { filters, setFilters } = useContext(FiltersContext)
+  
+  // ...
+}
+```
+
+
