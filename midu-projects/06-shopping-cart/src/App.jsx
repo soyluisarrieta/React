@@ -5,6 +5,7 @@ import { Footer } from './components/Footer'
 import { IS_DEVELOPMENT } from './config'
 import { useState } from 'react'
 import { useFilters } from './hooks/useFilters'
+import { Cart } from './components/Cart'
 
 function App () {
   const [products] = useState(initialProducts)
@@ -15,6 +16,7 @@ function App () {
   return (
     <>
       <Header />
+      <Cart />
       <Products products={filteredProducts} />
       {IS_DEVELOPMENT && <Footer filters={filters} />}
     </>
