@@ -6,6 +6,7 @@ import { IS_DEVELOPMENT } from './config'
 import { useState } from 'react'
 import { useFilters } from './hooks/useFilters'
 import { Cart } from './components/Cart'
+import { CartProvider } from './context/cart'
 
 function App () {
   const [products] = useState(initialProducts)
@@ -14,12 +15,12 @@ function App () {
   const filteredProducts = filterProducts(products)
 
   return (
-    <>
+    <CartProvider>
       <Header />
       <Cart />
       <Products products={filteredProducts} />
       {IS_DEVELOPMENT && <Footer filters={filters} />}
-    </>
+    </CartProvider>
   )
 }
 
