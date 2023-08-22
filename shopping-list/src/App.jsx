@@ -1,16 +1,20 @@
+import React, { useEffect, useState } from 'react'
 import { Button } from '@nextui-org/react'
 
-function App () {
+export default function App () {
+  const [darkMode, setDarkMode] = useState(true)
+
+  useEffect(() => {
+    const htmlClasses = document.documentElement.classList
+    darkMode ? htmlClasses.add('dark') : htmlClasses.remove('dark')
+  }, [darkMode])
+
   return (
-    <div className='w-screen h-screen flex flex-col gap-7 justify-center  items-center'>
-      <h1 className='text-5xl font-bold underline text-indigo-600'>
-        Hello Tailwind 3!
-      </h1>
-      <Button color='primary' className='w-fit' size='lg'>
-        Button
+    <div className='container mx-auto'>
+      The current DarkMode is: {darkMode ? 'Dark Mode' : 'Light Mode'}
+      <Button onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? 'Dark' : 'Light'} mode
       </Button>
     </div>
   )
 }
-
-export default App
