@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #1677ff;
+
+  --bg-color-sider: 27, 28, 30;
+  --bg-color-h-sider: 39, 41, 44;
+  --bg-color-l-sider: 20, 21, 22;
+
+  --bg-color-sider-rgb: rgb(27, 28, 30);
+  --bg-color-h-sider-rgb: rgb(36, 38, 40);
+  --bg-color-l-sider-rgb: rgb(20, 21, 22);
+
+
+  --txt-color-sider: 124, 125, 127;
+}
+
+.demo-logo-vertical {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, .2);
+  border-radius: 6px;
+}
+
+/* Scroll */
+::-webkit-scrollbar {
+  height: 1rem;
+  width: .5rem
+}
+
+::-webkit-scrollbar:horizontal {
+  height: .5rem;
+  width: 1rem
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 9999px
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(86,88,105,1);
+  border-color: rgba(86,88,105,1);
+  border-radius: 9999px;
+  border-width: 1px
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(172,172,190,1);
+}
+
+@media (min-width: 768px) {
+  .scrollbar-trigger ::-webkit-scrollbar-thumb {
+      visibility:hidden;
+  }
+
+  .scrollbar-trigger:hover ::-webkit-scrollbar-thumb {
+      visibility: visible
+  }
+}
+
+/* Ant-Design */
+.ant-menu-dark.ant-menu-inline .ant-menu-sub.ant-menu-inline {
+  border-radius: 0.6rem;
+  box-shadow: 0 0 15px var(--bg-color-l-sider-rgb);
+  background-color: var(--bg-color-h-sider-rgb);
+  font-size: 12px;
+}
+
+.ant-layout .ant-layout-sider-zero-width-trigger {
+  background-color: var(--bg-color-sider-rgb);
+}

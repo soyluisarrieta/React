@@ -1,0 +1,41 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.table {
+  width: 100%;
+  display: table;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-right: 0;
+  border-left: 0;
+}
+
+.table>:not(:first-child) {
+  border-top: 1px solid #4169ea;
+}
+
+.table .thead {
+  width: 100%;
+  background-color: rgba(29, 75, 193, 0.1);
+  color: rgba(10, 51, 187, 0.774);
+}
+
+.table .tbody {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.table .tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+}
+
+
+.table .tbody > .tr:nth-child(even) {
+  background-color: rgba(29, 75, 193, 0.03);
+}
