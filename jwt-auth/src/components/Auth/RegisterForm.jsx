@@ -1,13 +1,13 @@
-import { useRef, useState } from 'react'
+import axiosClient from '../../axios.client.js'
+
+import { useState } from 'react'
 import { Form, Formik } from 'formik'
 import { registerValidationSchema } from './authValidationSchemas'
 import InputFormik from './InputFormik'
 import { Button, Link } from '@nextui-org/react'
 import { EyeSlashFilledIcon } from '../../assets/icons/EyeSlashFilledIcon'
 import { EyeFilledIcon } from '../../assets/icons/EyeFilledIcon'
-
-import axiosClient from '../../axios.client.js'
-import { ErrorMessage } from './ErrorMessages'
+import { ErrorServer } from './ErrorServer'
 
 const initialValues = {
   name: '',
@@ -18,9 +18,8 @@ const initialValues = {
 }
 
 function RegisterForm () {
-  const errorMessageRef = useRef(null)
-  const [isLoading, setIsLoading] = useState(false)
   const [errMsg, setErrMsg] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState({
     password: false,
     passwordConfirmation: false
@@ -29,7 +28,7 @@ function RegisterForm () {
   const passwordVisibility = (toggleState) => setIsPasswordVisible({ ...isPasswordVisible, ...toggleState })
 
   const onSubmit = async (payload) => {
-    // console.log('Formulario enviado:', values)
+    // console.log('Formulario enviado:', payload)
     try {
       setErrMsg('')
       setIsLoading(true)
@@ -43,8 +42,6 @@ function RegisterForm () {
       } else {
         setErrMsg('Registration failed')
       }
-
-      errorMessageRef.current.focus()
     } finally {
       setTimeout(() => setIsLoading(false), 3000)
     }
@@ -56,7 +53,7 @@ function RegisterForm () {
       onSubmit={onSubmit}
     >
       <Form className='w-[500px] flex flex-col gap-4'>
-        <ErrorMessage ref={errorMessageRef} message={errMsg} />
+        <ErrorServer message={errMsg} />
 
         <div className='flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4'>
           <InputFormik
