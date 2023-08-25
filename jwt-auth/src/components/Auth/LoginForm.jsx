@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button, Link } from '@nextui-org/react'
 import { EyeSlashFilledIcon } from '../../assets/icons/EyeSlashFilledIcon'
 import { EyeFilledIcon } from '../../assets/icons/EyeFilledIcon'
-import { Formik } from 'formik'
+import { Form, Formik } from 'formik'
 import { loginValidationSchema } from './authValidationSchemas'
 import InputFormik from './InputFormik'
 
@@ -24,7 +24,7 @@ function LoginForm () {
       validationSchema={loginValidationSchema}
       onSubmit={onSubmit}
     >
-      <div className='w-[500px] flex flex-col gap-4'>
+      <Form className='w-[500px] flex flex-col gap-4'>
         <InputFormik
           isClearable
           type='text'
@@ -50,7 +50,7 @@ function LoginForm () {
           <Button className='mb-3' type='submit' fullWidth color='primary'>Login</Button>
           <p className='font-light'>Are you not member? <Link className='font-semibold underline' href='#'>Sign up</Link></p>
         </div>
-      </div>
+      </Form>
     </Formik>
   )
 }

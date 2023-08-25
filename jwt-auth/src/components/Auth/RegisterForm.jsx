@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Formik } from 'formik'
+import { Form, Formik } from 'formik'
 import { registerValidationSchema } from './authValidationSchemas'
 import InputFormik from './InputFormik'
 import { Button, Link } from '@nextui-org/react'
@@ -31,7 +31,7 @@ function RegisterForm () {
       validationSchema={registerValidationSchema}
       onSubmit={onSubmit}
     >
-      <div className='w-[500px] flex flex-col gap-4'>
+      <Form className='w-[500px] flex flex-col gap-4'>
         <div className='flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4'>
           <InputFormik
             isClearable
@@ -86,7 +86,7 @@ function RegisterForm () {
           <Button className='mb-3' type='submit' fullWidth color='primary'>Sign up</Button>
           <p className='font-light'>Are you member? <Link className='font-semibold underline' href='#'>Login</Link></p>
         </div>
-      </div>
+      </Form>
     </Formik>
   )
 }
