@@ -1,5 +1,8 @@
+'use client'
+
 import { Button, Link, Navbar as NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
 import { AcmeLogo } from '../assets/icons/AcmeLogo'
+import { useState } from 'react'
 
 const menuItems = [
   'Profile',
@@ -15,10 +18,17 @@ const menuItems = [
 ]
 
 function Navbar () {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
-    <NavbarContainer shouldHideOnScroll isBordered>
+    <NavbarContainer
+      shouldHideOnScroll
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       <NavbarContent className='sm:hidden' justify='start'>
-        <NavbarMenuToggle />
+        <NavbarMenuToggle aria-label={isMenuOpen ? 'Close menu' : 'Open menu'} />
       </NavbarContent>
 
       <NavbarContent className='sm:hidden pr-3' justify='center'>
