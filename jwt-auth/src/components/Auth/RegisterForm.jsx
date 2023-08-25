@@ -4,10 +4,11 @@ import { useState } from 'react'
 import { Form, Formik } from 'formik'
 import { registerValidationSchema } from './authValidationSchemas'
 import InputFormik from './InputFormik'
-import { Button, Link } from '@nextui-org/react'
+import { Button } from '@nextui-org/react'
 import { EyeSlashFilledIcon } from '../../assets/icons/EyeSlashFilledIcon'
 import { EyeFilledIcon } from '../../assets/icons/EyeFilledIcon'
 import { ErrorServer } from './ErrorServer'
+import { Link } from 'react-router-dom'
 
 const initialValues = {
   name: '',
@@ -115,7 +116,7 @@ function RegisterForm () {
           >
             {!isLoading && 'Sign up'}
           </Button>
-          <p className='font-light'>Are you member? <Link className='font-semibold underline' href='#'>Login</Link></p>
+          <p className='font-light'>Are you member? <Link className='font-semibold underline' to='/login'>Login</Link></p>
         </div>
       </Form>
     </Formik>

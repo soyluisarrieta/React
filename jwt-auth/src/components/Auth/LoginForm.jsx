@@ -1,13 +1,14 @@
 import axiosClient from '../../axios.client'
 
 import { useState } from 'react'
-import { Button, Link } from '@nextui-org/react'
+import { Button } from '@nextui-org/react'
 import { EyeSlashFilledIcon } from '../../assets/icons/EyeSlashFilledIcon'
 import { EyeFilledIcon } from '../../assets/icons/EyeFilledIcon'
 import { Form, Formik } from 'formik'
 import { loginValidationSchema } from './authValidationSchemas'
 import InputFormik from './InputFormik'
 import { ErrorServer } from './ErrorServer'
+import { Link } from 'react-router-dom'
 
 const initialValues = {
   email: '',
@@ -79,7 +80,7 @@ function LoginForm () {
           >
             {!isLoading && 'Login'}
           </Button>
-          <p className='font-light'>Are you not member? <Link className='font-semibold underline' href='#'>Sign up</Link></p>
+          <p className='font-light'>Are you not member? <Link className='font-semibold underline' to='/register'>Sign up</Link></p>
         </div>
       </Form>
     </Formik>
