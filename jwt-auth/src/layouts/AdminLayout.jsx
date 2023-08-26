@@ -1,11 +1,11 @@
-import { Navigate, Outlet } from 'react-router'
+import { Outlet } from 'react-router'
+import RequireAuth from '../components/Auth/requireAuth'
 
 function AdminLayout () {
-  const isUserAuthenticated = true
-  if (isUserAuthenticated) { return <Navigate to='/login' /> }
-
   return (
-    <Outlet />
+    <RequireAuth>
+      <Outlet />
+    </RequireAuth>
   )
 }
 

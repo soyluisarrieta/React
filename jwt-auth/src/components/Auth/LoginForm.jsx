@@ -9,6 +9,7 @@ import { loginValidationSchema } from './authValidationSchemas'
 import InputFormik from './InputFormik'
 import { ErrorServer } from './ErrorServer'
 import { Link } from 'react-router-dom'
+import useAuth from '../../hooks/useAuth'
 
 const initialValues = {
   email: '',
@@ -16,6 +17,7 @@ const initialValues = {
 }
 
 function LoginForm () {
+  const { setAuth } = useAuth()
   const [errMsg, setErrMsg] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -26,6 +28,7 @@ function LoginForm () {
       setErrMsg('')
       setIsLoading(true)
       const response = await axiosClient.post('/login', payload)
+      setAuth({ user: true })
       console.log({ response })
     } catch (err) {
       if (!err?.response) {
