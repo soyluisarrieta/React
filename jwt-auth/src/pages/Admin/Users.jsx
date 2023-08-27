@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import usersMock from '../../services/mocks/users.json'
-import TableUsers from '../../components/user/TableUsers'
+import UsersTable from '../../components/user/UsersTable'
 
 function Users () {
   const [users, setUsers] = useState(usersMock)
@@ -12,7 +12,7 @@ function Users () {
   return (
     <section className='container mx-auto py-5'>
       <h1 className='font-semibold text-2xl mb-3'>Users</h1>
-      <TableUsers users={users} />
+      <UsersTable users={users} />
     </section>
   )
 }
