@@ -24,6 +24,7 @@ function InputFormik ({ name, ...props }) {
 
   return (
     <Input
+      name={name}
       validationState={showError && meta.error ? 'invalid' : 'valid'}
       errorMessage={showError ? meta.error : ''}
       value={field.value}
