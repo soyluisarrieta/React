@@ -40,7 +40,7 @@ export const loginValidationSchema = yup.object().shape({
     .string()
     .min(6, MESSAGES.password.min)
     .required(MESSAGES.password.required)
-    .matches(REGEX.password, MESSAGES.password.regex)
+    // .matches(REGEX.password, MESSAGES.password.regex)
 })
 
 export const registerValidationSchema = yup.object().shape({
