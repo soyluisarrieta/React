@@ -1,13 +1,17 @@
 import { createContext, useState } from 'react'
+import { logout } from '../services/auth'
 
 const AuthContext = createContext({})
 
 function AuthProvider ({ children }) {
   const [auth, setAuth] = useState({})
 
+  const onLogout = () => logout(auth.accessToken)
+
   const value = {
     auth,
-    setAuth
+    setAuth,
+    onLogout
   }
 
   return (

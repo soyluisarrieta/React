@@ -3,14 +3,10 @@ import { createBrowserRouter } from 'react-router-dom'
 import PrivateRoutes from './PrivateRoutes'
 import PublicRoutes from './PublicRoutes'
 import NotFound from '../pages/errors/NotFound'
-import RequireAuth from '../components/auth/requireAuth'
 
 const router = createBrowserRouter([
   PublicRoutes,
-  {
-    element: <RequireAuth />,
-    children: [PrivateRoutes]
-  },
+  PrivateRoutes,
   {
     path: '*',
     element: <NotFound />

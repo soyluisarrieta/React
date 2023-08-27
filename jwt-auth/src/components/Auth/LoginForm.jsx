@@ -9,7 +9,7 @@ import { loginValidationSchema } from './authValidationSchemas'
 import InputFormik from './InputFormik'
 import { ErrorServer } from './ErrorServer'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import useAuth from '../../hooks/useAuth'
+import useAuth from '../../hooks/auth/useAuth'
 
 const initialValues = {
   email: '',
@@ -36,9 +36,8 @@ function LoginForm () {
         withCredentials: true
       })
       const { user } = response?.data.data
-      const { accessToken } = response?.data.data.authorization
+      const accessToken = response?.data.data.authorization.access_token
       // const roles = response?.data?.roles;
-      console.log({ response, from })
       setAuth({ user, accessToken })
       navigate(from, { replace: true })
     } catch (err) {

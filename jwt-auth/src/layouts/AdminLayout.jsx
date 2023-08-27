@@ -1,11 +1,22 @@
-import { Outlet } from 'react-router'
-import RequireAuth from '../components/auth/requireAuth'
+import Navbar from '../components/Navbar'
+import { Navigate, useLocation, Outlet } from 'react-router'
+import useAuth from '../hooks/auth/useAuth'
 
 function AdminLayout () {
+  const { auth } = useAuth()
+  const location = useLocation()
+
+  if (!auth?.user) {
+    return <Navigate to='/login' state={{ from: location }} replace />
+  }
+
   return (
-    <RequireAuth>
-      <Outlet />
-    </RequireAuth>
+    <>
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+    </>
   )
 }
 

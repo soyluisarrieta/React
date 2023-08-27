@@ -1,14 +1,14 @@
 import axiosClient from '../../axios.client.js'
 
 import { useState } from 'react'
-import InputFormik from './InputFormik.jsx'
-import useAuth from '../../hooks/useAuth.jsx'
+import InputFormik from './InputFormik'
+import useAuth from '../../hooks/auth/useAuth'
 import { Form, Formik } from 'formik'
 import { registerValidationSchema } from './authValidationSchemas.js'
 import { Button } from '@nextui-org/react'
-import { EyeSlashFilledIcon } from '../../assets/icons/EyeSlashFilledIcon.jsx'
-import { EyeFilledIcon } from '../../assets/icons/EyeFilledIcon.jsx'
-import { ErrorServer } from './ErrorServer.jsx'
+import { EyeSlashFilledIcon } from '../../assets/icons/EyeSlashFilledIcon'
+import { EyeFilledIcon } from '../../assets/icons/EyeFilledIcon'
+import { ErrorServer } from './ErrorServer'
 import { Link, useNavigate } from 'react-router-dom'
 
 const initialValues = {

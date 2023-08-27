@@ -2,6 +2,7 @@ import { Button, Navbar as NavbarContainer, NavbarBrand, NavbarContent, NavbarIt
 import { AcmeLogo } from '../assets/icons/AcmeLogo'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import useAuth from '../hooks/auth/useAuth'
 
 const menuItems = [
   'Profile',
@@ -18,6 +19,8 @@ const menuItems = [
 
 function Navbar () {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { auth, onLogout } = useAuth()
+
   const navigate = useNavigate()
 
   return (
@@ -56,16 +59,26 @@ function Navbar () {
       </NavbarContent>
 
       <NavbarContent justify='end'>
-        <NavbarItem>
-          <Button color='foreground' variant='solid' onClick={() => navigate('/login')}>
-            Login
-          </Button>
-        </NavbarItem>
-        <NavbarItem>
-          <Button color='primary' variant='shadow' onClick={() => navigate('/register')}>
-            Register
-          </Button>
-        </NavbarItem>
+        {!auth?.user
+          ? (
+            <>
+              <NavbarItem>
+                <Button color='foreground' variant='solid' onClick={() => navigate('/login')}>
+                  Login
+                </Button>
+              </NavbarItem>
+              <NavbarItem>
+                <Button color='primary' variant='shadow' onClick={() => navigate('/register')}>
+                  Register
+                </Button>
+              </NavbarItem>
+            </>)
+          : (
+            <NavbarItem>
+              <Button color='primary' variant='solid' onClick={onLogout}>
+                Cerrar cesión
+              </Button>
+            </NavbarItem>)}
       </NavbarContent>
 
       <NavbarMenu>
