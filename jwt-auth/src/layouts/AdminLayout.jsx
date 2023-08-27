@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router'
-import RequireAuth from '../components/Auth/requireAuth'
+import RequireAuth from '../components/auth/requireAuth'
 
 function AdminLayout () {
   return (
