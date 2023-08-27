@@ -1,8 +1,7 @@
-'use client'
-
-import { Button, Link, Navbar as NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
+import { Button, Navbar as NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
 import { AcmeLogo } from '../assets/icons/AcmeLogo'
 import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const menuItems = [
   'Profile',
@@ -19,6 +18,7 @@ const menuItems = [
 
 function Navbar () {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <NavbarContainer
@@ -44,29 +44,26 @@ function Navbar () {
           <p className='font-bold text-inherit'>ACME</p>
         </NavbarBrand>
         <NavbarItem>
-          <Link color='foreground' href='#'>
-            Features
+          <Link to='/home'>
+            Home
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color='foreground' href='#'>
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color='foreground' href='#'>
-            Integrations
+          <Link to='/users'>
+            Users
           </Link>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent justify='end'>
-        <NavbarItem className='hidden lg:flex'>
-          <Link href='#' color='foreground' variant='bordered'>Login</Link>
+        <NavbarItem>
+          <Button color='foreground' variant='solid' onClick={() => navigate('/login')}>
+            Login
+          </Button>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color='primary' href='#' variant='shadow'>
-            Sign Up
+          <Button color='primary' variant='shadow' onClick={() => navigate('/register')}>
+            Register
           </Button>
         </NavbarItem>
       </NavbarContent>
