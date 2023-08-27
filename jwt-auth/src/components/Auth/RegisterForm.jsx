@@ -33,7 +33,7 @@ function RegisterForm () {
     try {
       setErrMsg('')
       setIsLoading(true)
-      const response = await axiosClient.post('/register', payload)
+      const response = await axiosClient.post('/auth/register', payload)
       console.log({ response })
     } catch (err) {
       if (!err?.response) {
@@ -95,7 +95,7 @@ function RegisterForm () {
         <InputFormik
           type={isPasswordVisible.passwordConfirmation ? 'text' : 'password'}
           label='Password confirmation'
-          name='passwordConfirmation'
+          name='password_confirmation'
           isRequired
           endContent={
             <button className='focus:outline-none' type='button' onClick={() => passwordVisibility({ passwordConfirmation: !isPasswordVisible.passwordConfirmation })}>
