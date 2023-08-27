@@ -21,7 +21,7 @@ function LoginForm () {
 
   const navigate = useNavigate()
   const location = useLocation()
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || '/home'
 
   const [errMsg, setErrMsg] = useState('')
   const [isLoading, setIsLoading] = useState(false)

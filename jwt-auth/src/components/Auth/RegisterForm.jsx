@@ -8,17 +8,22 @@ import { Button } from '@nextui-org/react'
 import { EyeSlashFilledIcon } from '../../assets/icons/EyeSlashFilledIcon'
 import { EyeFilledIcon } from '../../assets/icons/EyeFilledIcon'
 import { ErrorServer } from './ErrorServer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import useAuth from '../../hooks/useAuth.jsx'
 
 const initialValues = {
   name: '',
   lastname: '',
   email: '',
-  passwordConfirmation: '',
-  password: ''
+  password: '',
+  password_confirmation: ''
 }
 
 function RegisterForm () {
+  const { setAuth } = useAuth()
+
+  const navigate = useNavigate()
+
   const [errMsg, setErrMsg] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [isPasswordVisible, setIsPasswordVisible] = useState({
@@ -33,8 +38,15 @@ function RegisterForm () {
     try {
       setErrMsg('')
       setIsLoading(true)
-      const response = await axiosClient.post('/auth/register', payload)
-      console.log({ response })
+      const response = await axiosClient.post('/auth/register', payload, {
+        withCredentials: true
+      })
+      const { user } = response?.data.data
+      const { accessToken } = response?.data.data.authorization
+      // const roles = response?.data?.roles;
+      console.log({ response, user, accessToken })
+      setAuth({ user, accessToken })
+      navigate('/home')
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No server response')

@@ -19,7 +19,7 @@ const MESSAGES = {
     required: 'Password is required',
     regex: 'Must contain at least one letter and one number'
   },
-  passwordConfirmation: {
+  password_confirmation: {
     required: 'Password confirmation is required',
     notMatch: 'Passwords not match'
   }
@@ -62,8 +62,8 @@ export const registerValidationSchema = yup.object().shape({
     .min(6, MESSAGES.password.min)
     .required(MESSAGES.password.required)
     .matches(REGEX.password, MESSAGES.password.regex),
-  passwordConfirmation: yup
+  password_confirmation: yup
     .string()
-    .required(MESSAGES.passwordConfirmation.required)
-    .oneOf([yup.ref('password'), null], MESSAGES.passwordConfirmation.notMatch)
+    .required(MESSAGES.password_confirmation.required)
+    .oneOf([yup.ref('password'), null], MESSAGES.password_confirmation.notMatch)
 })
