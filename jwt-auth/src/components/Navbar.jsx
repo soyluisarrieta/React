@@ -1,7 +1,7 @@
-import { Button, Navbar as NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from '@nextui-org/react'
+import { Button, Navbar as NavbarContainer, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle, User } from '@nextui-org/react'
 import { AcmeLogo } from '../assets/icons/AcmeLogo'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import useAuth from '../hooks/auth/useAuth'
 
 const menuItems = [
@@ -19,7 +19,7 @@ const menuItems = [
 
 function Navbar () {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { auth, onLogout } = useAuth()
+  const { auth } = useAuth()
 
   const navigate = useNavigate()
 
@@ -75,10 +75,19 @@ function Navbar () {
             </>)
           : (
             <NavbarItem>
-              <Button color='primary' variant='solid' onClick={onLogout}>
-                Cerrar cesión
-              </Button>
-            </NavbarItem>)}
+              <NavLink to='/profile'>
+                <User
+                  as='button'
+                  name={`${auth.user.name} ${auth.user.lastname}`}
+                  description={auth.user.email}
+                  className='transition-transform'
+                  avatarProps={{
+                    src: 'https://i.pravatar.cc/150?u=a04258114e29026702d'
+                  }}
+                />
+              </NavLink>
+            </NavbarItem>
+            )}
       </NavbarContent>
 
       <NavbarMenu>
