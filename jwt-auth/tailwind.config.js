@@ -23,9 +23,12 @@ export default {
       themes: {
         dark: {
           colors: {
+            background: '#1a193d',
             danger: '#ef4444',
             primary: {
               DEFAULT: '#ee5533'
+            },
+            default: {
             },
             focus: '#ee5533'
           }
