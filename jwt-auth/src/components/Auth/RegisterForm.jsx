@@ -1,5 +1,3 @@
-import axiosClient from '../../axios.client.js'
-
 import { useState } from 'react'
 import InputFormik from './InputFormik'
 import useAuth from '../../hooks/auth/useAuth'
@@ -9,55 +7,29 @@ import { Button } from '@nextui-org/react'
 import { EyeSlashFilledIcon } from '../../assets/icons/EyeSlashFilledIcon'
 import { EyeFilledIcon } from '../../assets/icons/EyeFilledIcon'
 import { ErrorServer } from './ErrorServer'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const initialValues = {
   name: '',
   lastname: '',
   email: '',
   password: '',
-  password_confirmation: ''
+  passwordConfirmation: ''
 }
 
 function RegisterForm () {
-  const { setAuth } = useAuth()
-
-  const navigate = useNavigate()
-
-  const [errMsg, setErrMsg] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const { register, errors, loading } = useAuth()
   const [isPasswordVisible, setIsPasswordVisible] = useState({
     password: false,
     passwordConfirmation: false
   })
 
-  const passwordVisibility = (toggleState) => setIsPasswordVisible({ ...isPasswordVisible, ...toggleState })
+  const passwordVisibility = (toggleState) => {
+    setIsPasswordVisible({ ...isPasswordVisible, ...toggleState })
+  }
 
-  const onSubmit = async (payload) => {
-    // console.log('Formulario enviado:', payload)
-    try {
-      setErrMsg('')
-      setIsLoading(true)
-      const response = await axiosClient.post('/auth/register', payload, {
-        withCredentials: true
-      })
-      const { user } = response?.data.data
-      const { accessToken } = response?.data.data.authorization
-      // const roles = response?.data?.roles;
-      console.log({ response, user, accessToken })
-      setAuth({ user, accessToken })
-      navigate('/home')
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No server response')
-      } else if (err.response?.status === 409) {
-        setErrMsg('Username Taken')
-      } else {
-        setErrMsg('Registration failed')
-      }
-    } finally {
-      setTimeout(() => setIsLoading(false), 3000)
-    }
+  const onSubmit = ({ name, lastname, email, password, passwordConfirmation }) => {
+    register({ name, lastname, email, password, passwordConfirmation })
   }
   return (
     <Formik
@@ -66,7 +38,7 @@ function RegisterForm () {
       onSubmit={onSubmit}
     >
       <Form className='w-[500px] flex flex-col gap-4'>
-        <ErrorServer message={errMsg} />
+        <ErrorServer message={errors ? JSON.stringify(errors) : null} />
 
         <div className='flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4'>
           <InputFormik
@@ -107,7 +79,7 @@ function RegisterForm () {
         <InputFormik
           type={isPasswordVisible.passwordConfirmation ? 'text' : 'password'}
           label='Password confirmation'
-          name='password_confirmation'
+          name='passwordConfirmation'
           isRequired
           endContent={
             <button className='focus:outline-none' type='button' onClick={() => passwordVisibility({ passwordConfirmation: !isPasswordVisible.passwordConfirmation })}>
@@ -124,9 +96,9 @@ function RegisterForm () {
             type='submit'
             fullWidth
             color='primary'
-            isLoading={isLoading}
+            isLoading={loading}
           >
-            {!isLoading && 'Sign up'}
+            {!loading && 'Sign up'}
           </Button>
           <p className='font-light'>Are you member? <Link className='font-semibold underline' to='/login'>Login</Link></p>
         </div>

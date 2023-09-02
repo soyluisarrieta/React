@@ -1,5 +1,3 @@
-import axiosClient from '../../axios.client'
-
 import { useState } from 'react'
 import { Button } from '@nextui-org/react'
 import { EyeSlashFilledIcon } from '../../assets/icons/EyeSlashFilledIcon'
@@ -8,7 +6,7 @@ import { Form, Formik } from 'formik'
 import { loginValidationSchema } from './authValidationSchemas'
 import InputFormik from './InputFormik'
 import { ErrorServer } from './ErrorServer'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import useAuth from '../../hooks/auth/useAuth'
 
 const initialValues = {
@@ -17,42 +15,15 @@ const initialValues = {
 }
 
 function LoginForm () {
-  const { setAuth } = useAuth()
+  const { login, errors, loading } = useAuth()
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
 
-  const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || '/home'
 
-  const [errMsg, setErrMsg] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-
-  const onSubmit = async (payload) => {
-    // console.log('Formulario enviado:', payload)
-    try {
-      setErrMsg('')
-      setIsLoading(true)
-      const response = await axiosClient.post('/auth/login', payload, {
-        withCredentials: true
-      })
-      const { user } = response?.data.data
-      const accessToken = response?.data.data.authorization.access_token
-      // const roles = response?.data?.roles;
-      setAuth({ user, accessToken })
-      navigate(from, { replace: true })
-    } catch (err) {
-      if (!err?.response) {
-        setErrMsg('No server response')
-      } else if (err.response?.status === 404) {
-        setErrMsg('User not exists')
-      } else {
-        setErrMsg('Login failed')
-      }
-    } finally {
-      setTimeout(() => setIsLoading(false), 3000)
-    }
+  const onSubmit = ({ email, password }) => {
+    login({ email, password })
   }
-
   return (
     <Formik
       initialValues={initialValues}
@@ -60,7 +31,7 @@ function LoginForm () {
       onSubmit={onSubmit}
     >
       <Form className='w-[500px] flex flex-col gap-4'>
-        <ErrorServer message={errMsg} />
+        <ErrorServer message={errors ? JSON.stringify(errors) : null} />
 
         <InputFormik
           isClearable
@@ -89,9 +60,9 @@ function LoginForm () {
             type='submit'
             fullWidth
             color='primary'
-            isLoading={isLoading}
+            isLoading={loading}
           >
-            {!isLoading && 'Login'}
+            {!loading && 'Login'}
           </Button>
           <p className='font-light'>Are you not member? <Link className='font-semibold underline' to='/register'>Sign up</Link></p>
         </div>

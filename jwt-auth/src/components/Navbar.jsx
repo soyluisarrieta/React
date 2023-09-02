@@ -19,7 +19,7 @@ const menuItems = [
 
 function Navbar () {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { auth } = useAuth()
+  const { user } = useAuth()
 
   const navigate = useNavigate()
 
@@ -59,7 +59,7 @@ function Navbar () {
       </NavbarContent>
 
       <NavbarContent justify='end'>
-        {!auth?.user
+        {!user
           ? (
             <>
               <NavbarItem>
@@ -78,8 +78,8 @@ function Navbar () {
               <NavLink to='/profile'>
                 <User
                   as='button'
-                  name={`${auth.user.name} ${auth.user.lastname}`}
-                  description={auth.user.email}
+                  name={user.name}
+                  description={user.email}
                   className='transition-transform'
                   avatarProps={{
                     src: 'https://i.pravatar.cc/150?u=a04258114e29026702d'

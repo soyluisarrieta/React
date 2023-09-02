@@ -15,11 +15,11 @@ const MESSAGES = {
     regex: 'Invalid email address'
   },
   password: {
-    min: 'Password must be at least 6 characters',
+    min: 'Password must be at least 8 characters',
     required: 'Password is required',
     regex: 'Must contain at least one letter and one number'
   },
-  password_confirmation: {
+  passwordConfirmation: {
     required: 'Password confirmation is required',
     notMatch: 'Passwords not match'
   }
@@ -38,7 +38,7 @@ export const loginValidationSchema = yup.object().shape({
     .matches(REGEX.email, MESSAGES.email.regex),
   password: yup
     .string()
-    .min(6, MESSAGES.password.min)
+    .min(8, MESSAGES.password.min)
     .required(MESSAGES.password.required)
     // .matches(REGEX.password, MESSAGES.password.regex)
 })
@@ -59,11 +59,11 @@ export const registerValidationSchema = yup.object().shape({
     .matches(REGEX.email, MESSAGES.email.regex),
   password: yup
     .string()
-    .min(6, MESSAGES.password.min)
+    .min(8, MESSAGES.password.min)
     .required(MESSAGES.password.required)
     .matches(REGEX.password, MESSAGES.password.regex),
-  password_confirmation: yup
+  passwordConfirmation: yup
     .string()
-    .required(MESSAGES.password_confirmation.required)
-    .oneOf([yup.ref('password'), null], MESSAGES.password_confirmation.notMatch)
+    .required(MESSAGES.passwordConfirmation.required)
+    .oneOf([yup.ref('password'), null], MESSAGES.passwordConfirmation.notMatch)
 })
