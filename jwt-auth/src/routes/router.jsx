@@ -5,8 +5,8 @@ import PublicRoutes from './PublicRoutes'
 import NotFound from '../pages/errors/NotFound'
 
 const router = createBrowserRouter([
-  PublicRoutes,
   PrivateRoutes,
+  PublicRoutes,
   {
     path: '*',
     element: <NotFound />
