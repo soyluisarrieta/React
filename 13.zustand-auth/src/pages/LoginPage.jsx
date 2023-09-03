@@ -17,7 +17,7 @@ function LoginPage () {
       await loginRequest({ email, password })
       const response = await profileRequest()
       setUser(response.data)
-      navigate('/')
+      navigate('/profile')
     } catch (err) {
       console.error(err)
     }
