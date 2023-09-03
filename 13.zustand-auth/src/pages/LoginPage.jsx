@@ -2,9 +2,11 @@ import Button from '../components/Button'
 import Input from '../components/Input'
 import { csrf, loginRequest, profileRequest } from '../services/auth'
 import { useAuthStore } from '../store/auth'
+import { useNavigate } from 'react-router-dom'
 
 function LoginPage () {
   const setUser = useAuthStore(state => state.setUser)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -15,6 +17,7 @@ function LoginPage () {
       await loginRequest({ email, password })
       const response = await profileRequest()
       setUser(response.data)
+      navigate('/')
     } catch (err) {
       console.error(err)
     }
