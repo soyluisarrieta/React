@@ -2,7 +2,7 @@ import React from 'react'
 
 function UsersList ({ users }) {
   return (
-    <table>
+    <table width='100%'>
       <thead>
         <tr>
           <th>Foto</th>
