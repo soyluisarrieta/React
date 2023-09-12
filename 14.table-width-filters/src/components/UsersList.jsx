@@ -14,22 +14,18 @@ function UsersList ({ users }) {
       </thead>
 
       <tbody>
-        {
-          users.map(users => {
-            return (
-              <tr key={users.id}>
-                <td>
-                  <img src='' />
-                </td>
-                <td />
-                <td />
-                <td />
-                <td />
-                <td />
+        {!users.length
+          ? 'No hay datos...'
+          : users.map(user =>
+            (
+              <tr key={user.id.value}>
+                <td><img src={user.picture.thumbnail} /></td>
+                <td>{user.name.first}</td>
+                <td>{user.name.last}</td>
+                <td>{user.location.country}</td>
+                <td><button>Borrar</button></td>
               </tr>
-            )
-          })
-        }
+            ))}
       </tbody>
     </table>
   )
