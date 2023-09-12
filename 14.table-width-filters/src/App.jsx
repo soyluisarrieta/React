@@ -5,6 +5,11 @@ import './App.css'
 
 function App () {
   const [users, setUsers] = useState([])
+  const [showColors, setShowColors] = useState(false)
+
+  const toggleShowColors = () => {
+    setShowColors(!showColors)
+  }
 
   useEffect(() => {
     fetch('http://localhost:3001/users')
@@ -20,7 +25,10 @@ function App () {
   return (
     <>
       <h1>Usuarios</h1>
-      <UsersList users={users} />
+      <header>
+        <button onClick={toggleShowColors}>Mostrar colores</button>
+      </header>
+      <UsersList showColors={showColors} users={users} />
     </>
   )
 }
