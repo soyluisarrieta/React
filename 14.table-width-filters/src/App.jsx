@@ -3,11 +3,34 @@ import UsersList from './components/UsersList'
 
 import './App.css'
 
+const fetchUsers = async (page, quantityResults) => {
+  return await fetch('http://localhost:3001/users')
+    .then(async res => {
+      if (!res.ok) { throw new Error('Error en la petición') }
+      return await res.json()
+    })
+    .then(res => {
+      // 🔹 Como estoy usando una API local sumularé la paginación
+      // ---
+      const startIndex = (page - 1) * quantityResults
+      const endIndex = startIndex + quantityResults
+      const usersPaginated = res.results.slice(startIndex, endIndex)
+      // ---
+      console.log({ usersPaginated })
+      return usersPaginated
+    })
+}
+
 function App () {
   const [users, setUsers] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [quantityResults, setQuantityResults] = useState(3)
   const [showColors, setShowColors] = useState(false)
   const [sortByCountry, setSortByCountry] = useState(false)
   const [filterCountry, setFilterCountry] = useState(null)
+
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   const originalUsers = useRef([])
 
@@ -29,16 +52,25 @@ function App () {
   }
 
   useEffect(() => {
-    fetch('http://localhost:3001/users')
-      .then(async res => await res.json())
-      .then(res => {
-        setUsers(res.results)
-        originalUsers.current = res.results
+    setLoading(true)
+    setError(false)
+
+    fetchUsers(currentPage, quantityResults)
+      .then(users => {
+        setUsers((prevUsers) => {
+          const newUsers = prevUsers.concat(users)
+          originalUsers.current = newUsers
+          return newUsers
+        })
       })
       .catch(err => {
+        setError(err)
         console.error(err)
       })
-  }, [])
+      .finally(() => {
+        setLoading(false)
+      })
+  }, [currentPage, quantityResults])
 
   const filteredUsers = useMemo(() => {
     return filterCountry !== null && filterCountry.length > 0
@@ -52,7 +84,7 @@ function App () {
     return sortByCountry
       ? users.toSorted((a, b) => a.location.country.localeCompare(b.location.country))
       : filteredUsers
-  }, [filteredUsers, sortByCountry])
+  }, [users, filteredUsers, sortByCountry])
 
   return (
     <>
@@ -65,7 +97,21 @@ function App () {
         </button>
         <input type='search' placeholder='Buscar por país' onChange={({ target }) => setFilterCountry(target.value)} />
       </header>
-      <UsersList deleteUser={handleDelete} showColors={showColors} users={sortedUsers} />
+      <main>
+        {users.length > 0 && (
+          <UsersList deleteUser={handleDelete} showColors={showColors} users={sortedUsers} />
+        )}
+
+        {loading && <strong>Cargando...</strong>}
+        {error && <p>Ha habido un error</p>}
+        {!error && users.length === 0 && <p>No hay usuarios</p>}
+
+        {!loading && !error && (
+          <button onClick={() => setCurrentPage(currentPage + 1)}>
+            Cargar más resultados
+          </button>
+        )}
+      </main>
     </>
   )
 }
