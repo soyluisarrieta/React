@@ -1,7 +1,6 @@
 import React from 'react'
 
-function UsersList ({ users, showColors }) {
-  console.log(showColors)
+function UsersList ({ users, deleteUser, showColors }) {
   return (
     <table width='100%'>
       <thead>
@@ -22,12 +21,12 @@ function UsersList ({ users, showColors }) {
             const backgroundColor = showColors ? color : 'transparent'
 
             return (
-              <tr key={i} style={{ backgroundColor }}>
+              <tr key={user.email} style={{ backgroundColor }}>
                 <td><img src={user.picture.thumbnail} /></td>
                 <td>{user.name.first}</td>
                 <td>{user.name.last}</td>
                 <td>{user.location.country}</td>
-                <td><button>Borrar</button></td>
+                <td><button onClick={() => deleteUser(user.email)}>Borrar</button></td>
               </tr>
             )
           })}
