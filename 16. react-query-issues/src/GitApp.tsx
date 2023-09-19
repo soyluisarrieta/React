@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Outlet } from 'react-router';
+import { Outlet } from 'react-router-dom';
 
 export const GitApp: FC = () => {
   
