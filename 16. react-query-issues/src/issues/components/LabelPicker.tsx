@@ -1,4 +1,5 @@
 import useLabels from "../../hooks/useLabels"
+import { LoadingIcon } from "../../shared/components/LoadingIcon"
 
 export const LabelPicker = () => {
   const {
@@ -7,7 +8,7 @@ export const LabelPicker = () => {
   } = useLabels()
 
   if (isLoading) {
-    return (<h1>Loading...</h1>)
+    return (<LoadingIcon />)
   }
 
   return (
