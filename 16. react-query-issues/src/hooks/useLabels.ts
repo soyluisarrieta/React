@@ -38,4 +38,4 @@ function useLabels() {
   return labelsQuery
 }
 
-export default useLabels
+export { useLabels }
