@@ -26,9 +26,8 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  padding: 1rem;
 }
 
 h1 {
@@ -66,4 +65,9 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+header {
+  display: flex;
+  gap: 1rem;
 }
