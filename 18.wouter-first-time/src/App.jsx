@@ -1,4 +1,4 @@
-import { Link, Route } from 'wouter'
+import { Link, Route, useLocation } from 'wouter'
 
 function InboxPage () {
   return (
@@ -14,6 +14,9 @@ function App () {
 
   return (
     <div>
+      {/* Current route */}
+      {location}
+
       {/* Navigation */}
       <header>
         <Link href='/users/1'>
@@ -25,6 +28,8 @@ function App () {
         <Link href='/inbox'>
           <a className='link'>Inbox</a>
         </Link>
+
+        <button onClick={() => setLocation('/inbox')}>Inbox</button>
       </header>
 
       {/* Routes */}
@@ -32,8 +37,6 @@ function App () {
       <Route path='/users/:name'>{(params) => <div>Hello, {params.name}!</div>}</Route>
       <Route path='/inbox' component={InboxPage} />
 
-      {/* Current route */}
-      {`The current page is: ${location}`}
     </div>
   )
 }
