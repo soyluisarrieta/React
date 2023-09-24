@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link, Route, useLocation } from 'wouter'
+import { Link, Route, useLocation, useRoute } from 'wouter'
 
 function InboxPage () {
   return (
@@ -11,14 +11,18 @@ function InboxPage () {
 }
 
 function App () {
+  // Obtener ruta completa
   const [location, navigate] = useLocation()
 
   useEffect(() => {
-    console.log(location)
     if (location === '/about') {
       navigate('/inbox')
     }
   }, [location])
+
+  // Verificar si coincide con la ruta
+  const [match, params] = useRoute('/users/:id')
+  console.log('useRoute:', { match, params })
 
   return (
     <div>
