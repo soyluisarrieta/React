@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, Route, useLocation } from 'wouter'
 
 function InboxPage () {
@@ -10,7 +11,14 @@ function InboxPage () {
 }
 
 function App () {
-  const [location, setLocation] = useLocation()
+  const [location, navigate] = useLocation()
+
+  useEffect(() => {
+    console.log(location)
+    if (location === '/about') {
+      navigate('/inbox')
+    }
+  }, [location])
 
   return (
     <div>
@@ -29,12 +37,12 @@ function App () {
           <a className='link'>Inbox</a>
         </Link>
 
-        <button onClick={() => setLocation('/inbox')}>Inbox</button>
+        <button onClick={() => navigate('/inbox')}>Inbox</button>
       </header>
 
       {/* Routes */}
       <Route path='/about'>About Us</Route>
-      <Route path='/users/:name'>{(params) => <div>Hello, {params.name}!</div>}</Route>
+      <Route path='/users/:userid'>{(params) => <div>Hello, {params.userid}!</div>}</Route>
       <Route path='/inbox' component={InboxPage} />
 
     </div>
