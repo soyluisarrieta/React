@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link, Route, useLocation, useRoute } from 'wouter'
+import { Link, Route, Switch, useLocation, useRoute } from 'wouter'
 
 function InboxPage () {
   return (
@@ -45,10 +45,12 @@ function App () {
       </header>
 
       {/* Routes */}
-      <Route path='/about'>About Us</Route>
-      <Route path='/users/:userid'>{(params) => <div>Hello, {params.userid}!</div>}</Route>
-      <Route path='/inbox' component={InboxPage} />
-
+      <Switch>
+        <Route path='/about'>About Us</Route>
+        <Route path='/users/:userid'>{(params) => <div>Hello, {params.userid}!</div>}</Route>
+        <Route path='/inbox' component={InboxPage} />
+        <Route><h1>404 - not found (x-x)</h1></Route>
+      </Switch>
     </div>
   )
 }
