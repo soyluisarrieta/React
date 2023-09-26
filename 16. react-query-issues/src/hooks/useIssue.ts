@@ -3,12 +3,12 @@ import React from 'react'
 import { Issue } from '../interfaces'
 import { gitHubApi } from '../api/githubApi'
 
-const getIssueInfo = async (issueNumber: number):Promise<Issue> => {
+export const getIssueInfo = async (issueNumber: number):Promise<Issue> => {
   const {data} = await gitHubApi.get<Issue>(`/issues/${issueNumber}`)
   return data
 }
 
-const getIssueComments = async (issueNumber: number):Promise<Issue[]> => {
+export const getIssueComments = async (issueNumber: number):Promise<Issue[]> => {
   const {data} = await gitHubApi.get<Issue[]>(`/issues/${issueNumber}/comments`)
   return data
 }
@@ -23,7 +23,7 @@ export const useIssue = (issueNumber: number) => {
     ['comments', issueNumber, 'comments'],
     () => getIssueComments(issueQuery.data!.number),
     {
-      enabled: issueQuery.data !== undefined
+      enabled: issueQuery.data !== undefined // <-- Espera a que issueQuery.data sea true
     }
   )
 
