@@ -1,7 +1,7 @@
-function App() {
- return (
-  <div>hi</div>
- )
+function App () {
+  return (
+    <div>hi</div>
+  )
 }
 
 export default App
