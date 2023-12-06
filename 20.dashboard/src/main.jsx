@@ -1,17 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
 import { routes } from '@assets/router'
+import { RouterProvider } from 'react-router-dom'
 import { NextUIProvider } from '@nextui-org/react'
-import App from './App.jsx'
 import './index.css'
+import '@assets/lib/nprogress/nprogress.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={routes}>
-      <NextUIProvider>
-        <App />
-      </NextUIProvider>
+      <NextUIProvider />
     </RouterProvider>
   </React.StrictMode>
 )
