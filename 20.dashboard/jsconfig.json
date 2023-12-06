@@ -8,7 +8,7 @@
       "@hooks/*":      ["src/hooks/*"],
       "@services/*":   ["src/services/*"],
       "@store/*":      ["src/store/*"],
-      "@lib/*":        ["src/assets/lib/*"],
+      "@assets/*":     ["src/assets/*"],
       "@icons/*":      ["src/assets/icons/*"],
       "@schemas/*":    ["src/assets/schemas/*"]
     }

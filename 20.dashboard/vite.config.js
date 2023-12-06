@@ -7,12 +7,12 @@ export default defineConfig({
   resolve: {
     alias: {
       '@components': '/src/components',
-      '@icons': '/src/assets/icons',
       '@pages': '/src/pages',
       '@hooks': '/src/hooks',
       '@services': '/src/services',
       '@store': '/src/store',
-      '@lib': '/src/assets/lib',
+      '@assets': '/src/assets',
+      '@icons': '/src/assets/icons',
       '@schemas': '/src/assets/schemas'
     }
   }
