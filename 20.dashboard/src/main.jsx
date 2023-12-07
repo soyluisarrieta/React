@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom'
 import { NextUIProvider } from '@nextui-org/react'
 import { Toaster } from 'sonner'
 
-import './index.css'
+import '@assets/lib/tailwind/input.css'
 import '@assets/lib/nprogress/nprogress.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
