@@ -1,5 +1,3 @@
-import React from 'react'
-
 function MasterLayout ({ className, children, ...props }) {
   const isDarkMode = true
   return (

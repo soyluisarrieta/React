@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import { API_ENDPOINT } from '../../../constants.js'
 
 export const axiosClient = axios.create({

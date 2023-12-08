@@ -1,6 +1,7 @@
 import nProgress from 'nprogress'
-import { csrfService } from '../services'
 import { toast } from 'sonner'
+
+import { csrfService } from '../services'
 
 export async function useFetch ({ service, payload, successMessage = '¡Solicitud realizada correctamente!', formikActions }) {
   nProgress.start()

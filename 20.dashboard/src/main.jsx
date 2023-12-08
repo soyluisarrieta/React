@@ -1,8 +1,8 @@
+import { routes } from '@assets/router'
+import { NextUIProvider } from '@nextui-org/react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { routes } from '@assets/router'
 import { RouterProvider } from 'react-router-dom'
-import { NextUIProvider } from '@nextui-org/react'
 import { Toaster } from 'sonner'
 
 import '@assets/lib/tailwind/input.css'
