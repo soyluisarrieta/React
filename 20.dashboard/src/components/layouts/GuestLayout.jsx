@@ -1,8 +1,14 @@
 import React from 'react'
 
+import { Outlet } from 'react-router-dom'
+
+import MasterLayout from '@components/layouts/MasterLayout'
+
 function GuestLayout () {
   return (
-    <div>GuestLayout</div>
+    <MasterLayout>
+      <Outlet />
+    </MasterLayout>
   )
 }
 

@@ -1,8 +1,13 @@
 import React from 'react'
 
+import { Outlet } from 'react-router-dom'
+import MasterLayout from '@components/layouts/MasterLayout'
+
 function AdminLayout () {
   return (
-    <div>AdminLayout</div>
+    <MasterLayout>
+      <Outlet />
+    </MasterLayout>
   )
 }
 
