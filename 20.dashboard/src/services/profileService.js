@@ -1,4 +1,4 @@
-import { axiosPrivate } from '../lib/axios/axiosClient'
+import { axiosPrivate } from '@assets/lib/axios/axiosClient'
 
 export const updateProfileService = async (userProfile) => {
   const response = await axiosPrivate.put('/api/profile', userProfile)

@@ -1,4 +1,4 @@
-import { axiosPrivate } from '../lib/axios/axiosClient'
+import { axiosPrivate } from '@assets/lib/axios/axiosClient'
 
 export const csrfService = async () => {
   await axiosPrivate.get('/sanctum/csrf-cookie')

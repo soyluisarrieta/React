@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.9",
+    "axios": "^1.6.2",
     "framer-motion": "^10.16.12",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1",
-    "sonner": "^1.2.4"
+    "sonner": "^1.2.4",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
