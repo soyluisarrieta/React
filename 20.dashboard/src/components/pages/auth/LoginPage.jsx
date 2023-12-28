@@ -18,12 +18,13 @@ function LoginPage () {
           animate={isLoading ? 'loading' : 'initial'}
           variants={{
             initial: { y: 0, scale: 1, transition: { duration: 0.4, ease: [0.45, 0.46, 0.4, 1] } },
-            loading: { y: '40vh', scale: 2, transition: { duration: 1, ease: [0.48, 0.21, 0.17, 1] } }
+            loading: { y: '40vh', scale: 2, transition: { duration: 0.7, ease: [0.48, 0.21, 0.17, 1] } }
           }}
           transition={{ type: 'just' }}
         >
           <PaylusEstudio.Horizontal
             darkmode
+            isLoading={isLoading}
             tagline
             className='w-40'
             onClick={() => setIsLoading(!isLoading)}
@@ -43,13 +44,22 @@ function LoginPage () {
             >
               <div className='w-full max-w-lg mx-auto p-7 bg-content1 border-2 border-content3 rounded-lg'>
                 <header className='text-center mb-5'>
-                  <span className='uppercase text-lg font-semibold tracking-wider opacity-50'>Welcome back</span>
-                  <h1 className='text-3xl font-semibold'>Log into yout account</h1>
+                  <span className='uppercase text-lg font-semibold tracking-wider opacity-50'>Te doy la bienvenida</span>
+                  <h1 className='text-3xl font-semibold'>Inicia sesión en tu cuenta</h1>
                 </header>
-                <form>
+                <form className='flex flex-col gap-3'>
                   <Input label='Email' />
                   <Input label='Password' />
-                  <Button onClick={() => setIsLoading(!isLoading)}>Login now</Button>
+                  <Button
+                    className='my-3'
+                    size='lg'
+                    fullWidth
+                    variant='solid'
+                    color='primary'
+                    onClick={() => setIsLoading(!isLoading)}
+                  >
+                    Login now
+                  </Button>
                 </form>
                 <footer>Not register yet? <Link href='/registrarse'>Registrarse</Link></footer>
               </div>

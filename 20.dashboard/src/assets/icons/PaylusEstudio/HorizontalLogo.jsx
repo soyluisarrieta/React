@@ -1,6 +1,6 @@
 import COLORS from './colors.js'
 
-export default function HorizontalLogo ({ className, tagline, darkmode, ...restProps }) {
+export default function HorizontalLogo ({ className, tagline, darkmode, isLoading, ...restProps }) {
   const color = COLORS[darkmode ? 'dark' : 'light']
   return (
     <svg
