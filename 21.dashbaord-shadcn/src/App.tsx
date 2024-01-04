@@ -1,12 +1,8 @@
-import { Button } from "@/components/ui/button"
+import AdminLayout from "./components/layout/AdminLayout"
+
 function App() {
   return (
-    <div className="text-3xl">
-      App 
-      <br /> 
-      <br /> 
-      <Button>Button</Button>
-      </div>
+    <AdminLayout />
   )
 }
 
