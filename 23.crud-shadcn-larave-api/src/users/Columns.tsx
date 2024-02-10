@@ -1,44 +1,45 @@
 import { Button } from '@/components/ui/button'
+import { DataTableColumnHeader } from '@/components/ui/data-table-column'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { type Users } from '@/mocks/users'
 import { type ColumnDef } from '@tanstack/react-table'
-import { ArrowUpDownIcon, MoreHorizontalIcon } from 'lucide-react'
+import { MoreHorizontalIcon } from 'lucide-react'
 
 export const columns: Array<ColumnDef<Users>> = [
   {
     accessorKey: 'id',
     id: 'ID',
-    header: 'ID'
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title={column.id} />
+    )
   },
   {
     accessorKey: 'name',
     id: 'Nombre',
-    header: 'Nombre'
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title={column.id} />
+    )
   },
   {
     accessorKey: 'lastname',
     id: 'Apellido',
-    header: 'Apellido'
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title={column.id} />
+    )
   },
   {
     accessorKey: 'email',
     id: 'Correo electrónico',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => { column.toggleSorting(column.getIsSorted() === 'asc') }}
-        >
-          Correo electrónico
-          <ArrowUpDownIcon className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    }
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title={column.id} />
+    )
   },
   {
     accessorKey: 'lastUpdateAt',
     id: 'Última actualización',
-    header: 'Última actualización'
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title={column.id} />
+    )
   },
   {
     id: 'Acciones',
