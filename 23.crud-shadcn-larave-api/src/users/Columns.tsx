@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { type Users } from '@/mocks/users'
 import { type ColumnDef } from '@tanstack/react-table'
-import { MoreHorizontalIcon } from 'lucide-react'
+import { ArrowUpDownIcon, MoreHorizontalIcon } from 'lucide-react'
 
 export const columns: Array<ColumnDef<Users>> = [
   {
@@ -19,7 +19,17 @@ export const columns: Array<ColumnDef<Users>> = [
   },
   {
     accessorKey: 'email',
-    header: 'Correo electrónico'
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => { column.toggleSorting(column.getIsSorted() === 'asc') }}
+        >
+          Correo electrónico
+          <ArrowUpDownIcon className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    }
   },
   {
     accessorKey: 'lastUpdateAt',
