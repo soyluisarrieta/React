@@ -6,3 +6,4 @@ tailwind.config.js
 
 node_modules
 src/vite-env.d.ts
+src/components/ui
