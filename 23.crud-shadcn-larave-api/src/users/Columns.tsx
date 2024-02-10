@@ -7,18 +7,22 @@ import { ArrowUpDownIcon, MoreHorizontalIcon } from 'lucide-react'
 export const columns: Array<ColumnDef<Users>> = [
   {
     accessorKey: 'id',
+    id: 'ID',
     header: 'ID'
   },
   {
     accessorKey: 'name',
+    id: 'Nombre',
     header: 'Nombre'
   },
   {
     accessorKey: 'lastname',
+    id: 'Apellido',
     header: 'Apellido'
   },
   {
     accessorKey: 'email',
+    id: 'Correo electrónico',
     header: ({ column }) => {
       return (
         <Button
@@ -33,10 +37,11 @@ export const columns: Array<ColumnDef<Users>> = [
   },
   {
     accessorKey: 'lastUpdateAt',
+    id: 'Última actualización',
     header: 'Última actualización'
   },
   {
-    id: 'actions',
+    id: 'Acciones',
     cell: ({ row }) => {
       const users = row.original
 
