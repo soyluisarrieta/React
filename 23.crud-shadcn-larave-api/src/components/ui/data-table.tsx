@@ -27,11 +27,13 @@ import { SearchIcon } from "lucide-react"
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
+  toolbar?: JSX.Element
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  toolbar,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([])
   const [globalFilter, setGlobalFilter] = useState()
@@ -56,7 +58,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center">
+      <div className="flex items-center gap-2 bg-muted-/50 dark:bg-muted/20 border p-3 rounded-lg">
         <div className="w-full max-w-96 flex items-center gap-2">
           <Input
             placeholder="Búsqueda rápida..."
@@ -65,9 +67,12 @@ export function DataTable<TData, TValue>({
             }}
             className="max-w-sm pr-10"
           />
-          <SearchIcon className="-ml-10" />
+          <SearchIcon className="-ml-10 text-muted-foreground" />
         </div>
-        <DataTableViewOptions table={table} />
+        <div className="ml-auto flex items-center gap-1">
+          {toolbar}
+          <DataTableViewOptions table={table} />
+        </div>
       </div>
 
       <div className="rounded-md border">

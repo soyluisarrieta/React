@@ -17,7 +17,7 @@ export function DataTableViewOptions<TData>({
         <Button
           variant="outline"
           size="sm"
-          className="ml-auto hidden lg:flex"
+          className="ml-auto"
         >
           <Settings2Icon className="mr-1.5" size={20} /> Columnas
         </Button>
