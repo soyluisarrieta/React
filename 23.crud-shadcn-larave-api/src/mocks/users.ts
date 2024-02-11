@@ -5,7 +5,7 @@ export interface Users {
   status: boolean
   email: string
   emailVerifiedAt: null | number
-  lastUpdateAt: null | number
+  lastUpdateAt: number
 }
 
 export const users: Users[] = [
@@ -16,7 +16,7 @@ export const users: Users[] = [
     status: true,
     email: 'samuelthompson@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '2d569g24',
@@ -25,7 +25,7 @@ export const users: Users[] = [
     status: false,
     email: 'emilyjohnson@gmail.com',
     emailVerifiedAt: null,
-    lastUpdateAt: 1707587438
+    lastUpdateAt: 123456789
   },
   {
     id: '3d689f34',
@@ -43,7 +43,7 @@ export const users: Users[] = [
     status: false,
     email: 'angeladavis@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '5d889f54',
@@ -79,7 +79,7 @@ export const users: Users[] = [
     status: false,
     email: 'jessicataylor@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '9dc99j94',
@@ -115,7 +115,7 @@ export const users: Users[] = [
     status: false,
     email: 'patriciawhite@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '13dd99n34',
@@ -151,7 +151,7 @@ export const users: Users[] = [
     status: false,
     email: 'dorothygarcia@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '17dd99r74',
@@ -187,7 +187,7 @@ export const users: Users[] = [
     status: false,
     email: 'jenniferrodriguez@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '21dd99v14',
@@ -223,7 +223,7 @@ export const users: Users[] = [
     status: false,
     email: 'helenhall@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '25dd99z54',
@@ -259,7 +259,7 @@ export const users: Users[] = [
     status: false,
     email: 'barbaraking@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '29dd99d94',
@@ -295,7 +295,7 @@ export const users: Users[] = [
     status: false,
     email: 'sandrascott@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '33dd99h34',
@@ -331,7 +331,7 @@ export const users: Users[] = [
     status: false,
     email: 'robertnelson@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '37dd99l74',
@@ -367,7 +367,7 @@ export const users: Users[] = [
     status: false,
     email: 'jenniferroberts@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '41dd99p14',
@@ -403,7 +403,7 @@ export const users: Users[] = [
     status: false,
     email: 'dorothyparker@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '45dd99t54',
@@ -439,7 +439,7 @@ export const users: Users[] = [
     status: false,
     email: 'susanstewart@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '49dd99x94',
@@ -475,7 +475,7 @@ export const users: Users[] = [
     status: false,
     email: 'edwardreed@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '53dd99b34',
@@ -511,7 +511,7 @@ export const users: Users[] = [
     status: false,
     email: 'michaelmurphy@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '57dd99f74',
@@ -547,7 +547,7 @@ export const users: Users[] = [
     status: false,
     email: 'robertrichardson@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '61dd99j14',
@@ -565,7 +565,7 @@ export const users: Users[] = [
     status: false,
     email: 'carolhoward@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '63dd99l34',
@@ -601,7 +601,7 @@ export const users: Users[] = [
     status: false,
     email: 'frankgray@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '67dd99p74',
@@ -637,7 +637,7 @@ export const users: Users[] = [
     status: false,
     email: 'sarahbrooks@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '71dd99t14',
@@ -673,7 +673,7 @@ export const users: Users[] = [
     status: false,
     email: 'jessicabennett@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '75dd99x54',
@@ -709,7 +709,7 @@ export const users: Users[] = [
     status: false,
     email: 'dorothyhenderson@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '79dd99b94',
@@ -745,7 +745,7 @@ export const users: Users[] = [
     status: false,
     email: 'charlespowell@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '83dd99f34',
@@ -781,7 +781,7 @@ export const users: Users[] = [
     status: false,
     email: 'raymondflores@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '87dd99j74',
@@ -817,7 +817,7 @@ export const users: Users[] = [
     status: false,
     email: 'paulfoster@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '91dd99n14',
@@ -853,7 +853,7 @@ export const users: Users[] = [
     status: false,
     email: 'michaelrussell@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '95dd99r54',
@@ -889,7 +889,7 @@ export const users: Users[] = [
     status: false,
     email: 'thomasmyers@gmail.com',
     emailVerifiedAt: 1707587440,
-    lastUpdateAt: null
+    lastUpdateAt: 0
   },
   {
     id: '99dd99v94',
