@@ -39,8 +39,8 @@ export function DrawerDialog({title, description, buttonLabel, children}:Props) 
         <DialogTrigger asChild>
           <Button><PlusIcon size={20} className='mr-1.5' />{buttonLabel}</Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
+        <DialogContent className="sm:max-w-[425px] px-0">
+          <DialogHeader className="px-6">
             <DialogTitle>{title}</DialogTitle>
             <DialogDescription>
               {description}
@@ -58,14 +58,14 @@ export function DrawerDialog({title, description, buttonLabel, children}:Props) 
         <Button>{buttonLabel}</Button>
       </DrawerTrigger>
       <DrawerContent>
-        <DrawerHeader className="text-left">
+        <DrawerHeader className="text-left p-6">
           <DrawerTitle>{title}</DrawerTitle>
           <DrawerDescription>
             {description}
           </DrawerDescription>
         </DrawerHeader>
         {children}
-        <DrawerFooter className="pt-2">
+        <DrawerFooter className="p-6 pt-2">
           <DrawerClose asChild>
             <Button variant="outline">Cancelar</Button>
           </DrawerClose>
