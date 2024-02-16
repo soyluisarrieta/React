@@ -3,7 +3,7 @@ import { DataTable } from '@/components/ui/data-table'
 import { type Users as UsersType, users as userMock } from '@/mocks/users'
 import { columns } from '@/users/Columns'
 import UserForm from '@/users/UserForm'
-import { DrawerDialog } from '@/components/ui/drawer-dialog'
+import { DrawerResponsive } from '@/components/ui/drawer-responsive'
 
 const getData = async (): Promise<UsersType[]> => userMock
 
@@ -26,13 +26,13 @@ export default function Users (): JSX.Element {
             Gestione los datos de los usuarios
           </p>
         </div>
-        <DrawerDialog
+        <DrawerResponsive
           title='Nuevo usuario'
           description='Rellene el formulario completo y haga clic en guardar.'
           buttonLabel={'Añadir usuario'}
         >
           <UserForm className='px-6' />
-        </DrawerDialog>
+        </DrawerResponsive>
       </div>
 
       <DataTable
