@@ -20,7 +20,7 @@ interface Props {
 }
 
 export function DrawerResponsive({title, description, buttonLabel, children}:Props) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>

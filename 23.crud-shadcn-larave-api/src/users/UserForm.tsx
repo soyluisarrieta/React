@@ -8,10 +8,11 @@ import { useForm } from 'react-hook-form'
 import { type z } from 'zod'
 
 interface Props {
+  buttonLabel?: string
   className?: string
 }
 
-export default function UserForm ({ className }: Props): JSX.Element {
+export default function UserForm ({ buttonLabel = 'Guardar', className }: Props): JSX.Element {
   // 1. Define your form.
   const form = useForm<z.infer<typeof userSchema>>({
     resolver: zodResolver(userSchema),
@@ -69,7 +70,7 @@ export default function UserForm ({ className }: Props): JSX.Element {
                 </FormItem>
               )}
             />
-        <Button type="submit" className='mt-4'>Guardar</Button>
+        <Button type="submit" className='mt-4'>{buttonLabel}</Button>
       </form>
     </Form>
   )
