@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useRef, useEffect } from 'react';
+import { createChart, IChartApi } from 'lightweight-charts';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+interface DataPoint {
+  time: string;
+  value: number;
 }
 
-export default App
+interface ChartProps {
+  data: DataPoint[];
+}
+
+const Chart: React.FC<ChartProps> = ({ data }) => {
+  const chartContainerRef = useRef<HTMLDivElement>(null);
+  const chartInstance = useRef<IChartApi | null>(null);
+
+  useEffect(() => {
+    if (chartContainerRef.current) {
+      chartInstance.current = createChart(chartContainerRef.current, { width: 1000, height: 300 });
+      const lineSeries = chartInstance.current.addLineSeries();
+      lineSeries.setData(data);
+
+      return () => {
+        if (chartInstance.current) {
+          chartInstance.current.remove();
+        }
+      };
+    }
+  }, [data]);
+
+  return <div ref={chartContainerRef} style={{ width: '100%', height: '300px' }} />;
+};
+
+const App: React.FC = () => {
+  const data: DataPoint[] = [
+    { time: '2019-04-11', value: 80.01 },
+    { time: '2019-04-12', value: 96.63 },
+    { time: '2019-04-13', value: 76.64 },
+    { time: '2019-04-14', value: 81.89 },
+    { time: '2019-04-15', value: 74.43 },
+    { time: '2019-04-16', value: 80.01 },
+    { time: '2019-04-17', value: 96.63 },
+    { time: '2019-04-18', value: 76.64 },
+    { time: '2019-04-19', value: 81.89 },
+    { time: '2019-04-20', value: 74.43 },
+  ];
+
+  return <Chart data={data} />;
+};
+
+export default App;
