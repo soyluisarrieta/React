@@ -47,7 +47,6 @@ export default function AreaBasic() {
       options={chartOptions}
       series={series}
       type="area"
-      width={500}
       height={350}
     />
   );
