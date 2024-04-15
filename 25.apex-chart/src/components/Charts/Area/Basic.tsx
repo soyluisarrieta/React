@@ -1,5 +1,5 @@
 import { ApexOptions } from "apexcharts";
-import ApexChartComponent from "../../ApexChart";
+import ApexChart from "../../ApexChart";
 
 export default function AreaBasic() {
   const series = [{
@@ -42,8 +42,7 @@ export default function AreaBasic() {
   }
 
   return (
-    <ApexChartComponent
-      id="area-basic"
+    <ApexChart
       options={chartOptions}
       series={series}
       type="area"

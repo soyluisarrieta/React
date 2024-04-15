@@ -2,7 +2,6 @@ import { ApexOptions } from "apexcharts";
 import Chart from "react-apexcharts";
 
 interface ApexChartProps  {
-  id: string
   type?:
     | "line"
     | "area"
@@ -27,9 +26,9 @@ interface ApexChartProps  {
 }
 
 
-const ApexChart = ({ id, ...props }: ApexChartProps): JSX.Element => {
+const ApexChart = ({ ...props }: ApexChartProps): JSX.Element => {
   return (
-    <Chart id={id} {...props} />
+    <Chart {...props} />
   );
 };
 

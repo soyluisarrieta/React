@@ -34,7 +34,6 @@ export default function SplineArea() {
 
   return (
     <ApexChartComponent
-      id="spline-area"
       options={chartOptions}
       series={series}
       type="area"
