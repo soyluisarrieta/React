@@ -24,6 +24,13 @@ import CustomDataLabels from "./components/Charts/Bar/CustomDataLabels";
 import LineAndColumn from "./components/Charts/Mixed/LineAndColumn";
 import LineAndArea from "./components/Charts/Mixed/LineAndArea";
 import LineColumnArea from "./components/Charts/Mixed/LineColumnArea";
+import BasicTimeline from "./components/Charts/Timeline/BasicTimeline";
+import DistributedTimeline from "./components/Charts/Timeline/DistributedTimeline";
+import MultiSeries from "./components/Charts/Timeline/MultiSeries";
+import Advanced from "./components/Charts/Timeline/Advanced";
+import MultipleSeriesGroupRows from "./components/Charts/Timeline/MultipleSeriesGroupRows";
+import DumbbellChartHorizontal from "./components/Charts/Timeline/DumbbellChartHorizontal";
+import DumbbellChartVertical from "./components/Charts/Column/DumbbellChartVertical";
 
 function App() {
 
@@ -48,6 +55,7 @@ function App() {
         <CardChart name='Stacked Complete Columns'><StackedCompleteColumn /></CardChart>
         <CardChart name='Grouped Stacked Columns'><GroupedStackedColumns /></CardChart>
         <CardChart name='Column with Negative Values'><ColumnWithNegativeValues /></CardChart>
+        <CardChart name='Dumbbell Chart Vertical'><DumbbellChartVertical /></CardChart>
       </SectionCharts>
       <SectionCharts title='Bars'>
         <CardChart name='Basic Bars'><BasicBar /></CardChart>
@@ -63,6 +71,14 @@ function App() {
         <CardChart name='Line and Column'><LineAndColumn /></CardChart>
         <CardChart name='Line and Area'><LineAndArea /></CardChart>
         <CardChart name='Line Column Area'><LineColumnArea /></CardChart>
+      </SectionCharts>
+      <SectionCharts title='Timeline'>
+        <CardChart name='Basic Timeline'><BasicTimeline /></CardChart>
+        <CardChart name='Distribuited Timeline'><DistributedTimeline /></CardChart>
+        <CardChart name='Multi-Series'><MultiSeries /></CardChart>
+        <CardChart name='Advanced'><Advanced /></CardChart>
+        <CardChart name='Multiple Series Group Rows'><MultipleSeriesGroupRows /></CardChart>
+        <CardChart name='DumbbellChartHorizontal'><DumbbellChartHorizontal /></CardChart>
       </SectionCharts>
     </main>
   );
