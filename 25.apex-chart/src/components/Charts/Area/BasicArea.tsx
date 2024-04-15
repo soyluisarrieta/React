@@ -1,7 +1,7 @@
 import { ApexOptions } from "apexcharts";
 import ApexChart from "../../ApexChart";
 
-export default function AreaBasic() {
+export default function BasicArea() {
   const series = [{
     name: "STOCK ABC",
     data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
