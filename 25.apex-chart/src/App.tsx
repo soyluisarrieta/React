@@ -37,6 +37,12 @@ import MonochromePie from "./components/Charts/PieDonuts/MonochromePie";
 import GradientDonut from "./components/Charts/PieDonuts/GradientDonut";
 import BasicPolar from "./components/Charts/PolarArea/BasicPolar";
 import MonochromePolar from "./components/Charts/PolarArea/MonochromePolar";
+import BasicRadialBar from "./components/Charts/RadialBar/BasicRadialBar";
+import MultipleRadialBars from "./components/Charts/RadialBar/MultipleRadialBars";
+import CustomAngleCircle from "./components/Charts/RadialBar/CustomAngleCircle";
+import GradientRadial from "./components/Charts/RadialBar/GradientRadial";
+import StrokedGauge from "./components/Charts/RadialBar/StrokedGauge";
+import SemiCircleGauge from "./components/Charts/RadialBar/SemiCircleGauge";
 
 function App() {
 
@@ -92,9 +98,17 @@ function App() {
         <CardChart name='Monochrome Pie'><MonochromePie /></CardChart>
         <CardChart name='Gradient Donut'><GradientDonut /></CardChart>
       </SectionCharts>
-      <SectionCharts title='Mixed'>
+      <SectionCharts title='Polar Area'>
         <CardChart name='Basic Polar'><BasicPolar /></CardChart>
         <CardChart name='Monochrome Polar'><MonochromePolar /></CardChart>
+      </SectionCharts>
+      <SectionCharts title='Radial Bar'>
+        <CardChart name='Basic Radial Bar'><BasicRadialBar /></CardChart>
+        <CardChart name='Multiple Radial Bars'><MultipleRadialBars /></CardChart>
+        <CardChart name='Custom Angle Circle'><CustomAngleCircle /></CardChart>
+        <CardChart name='Gradient Radial'><GradientRadial /></CardChart>
+        <CardChart name='Stroked Gauge'><StrokedGauge /></CardChart>
+        <CardChart name='Semi-Circle Gauge'><SemiCircleGauge /></CardChart>
       </SectionCharts>
     </main>
   );
