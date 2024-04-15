@@ -3,6 +3,12 @@ import BasicArea from "./components/Charts/Area/BasicArea";
 import Negative from "./components/Charts/Area/Negative";
 import SplineArea from "./components/Charts/Area/Spline";
 import Stacked from "./components/Charts/Area/Stacked";
+import BasicColumn from "./components/Charts/Column/BasicColumn";
+import ColumnWithDataLabels from "./components/Charts/Column/ColumnWithDataLabels";
+import ColumnWithNegativeValues from "./components/Charts/Column/ColumnWithNegativeValues";
+import GroupedStackedColumns from "./components/Charts/Column/GroupedStackedColumns";
+import StackedBar from "./components/Charts/Column/StackedBar";
+import StackedColumns from "./components/Charts/Column/StackedColumns";
 import BasicLine from "./components/Charts/Line/BasicLine";
 import Gradient from "./components/Charts/Line/Gradient";
 import LineWithDataLabels from "./components/Charts/Line/LineWithDataLabels";
@@ -23,6 +29,14 @@ function App() {
         <CardChart name='Basic Line'><BasicLine /></CardChart>
         <CardChart name='Line with Data Labels'><LineWithDataLabels /></CardChart>
         <CardChart name='Gradient'><Gradient /></CardChart>
+      </SectionCharts>
+      <SectionCharts title='Column'>
+        <CardChart name='Basic Column'><BasicColumn /></CardChart>
+        <CardChart name='Column with Data Labels'><ColumnWithDataLabels /></CardChart>
+        <CardChart name='Stacked Columns'><StackedColumns /></CardChart>
+        <CardChart name='Stacked Bar'><StackedBar /></CardChart>
+        <CardChart name='Grouped Stacked Columns'><GroupedStackedColumns /></CardChart>
+        <CardChart name='Column with Negative Values'><ColumnWithNegativeValues /></CardChart>
       </SectionCharts>
     </main>
   );
