@@ -37,7 +37,7 @@ export default function CustomAngleCircle() {
       floating: true,
       fontSize: '16px',
       position: 'left',
-      offsetX: 160,
+      offsetX: 110,
       offsetY: 15,
       labels: {
         useSeriesColors: true,

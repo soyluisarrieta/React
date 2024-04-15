@@ -45,7 +45,6 @@ import StrokedGauge from "./components/Charts/RadialBar/StrokedGauge";
 import SemiCircleGauge from "./components/Charts/RadialBar/SemiCircleGauge";
 
 function App() {
-
   return (
     <main>
       <h1 style={{color: '#fff'}}>Apex Chart</h1>
