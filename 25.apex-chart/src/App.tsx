@@ -35,6 +35,8 @@ import SimplePie from "./components/Charts/PieDonuts/SimplePie";
 import SimpleDonut from "./components/Charts/PieDonuts/SimpleDonut";
 import MonochromePie from "./components/Charts/PieDonuts/MonochromePie";
 import GradientDonut from "./components/Charts/PieDonuts/GradientDonut";
+import BasicPolar from "./components/Charts/PolarArea/BasicPolar";
+import MonochromePolar from "./components/Charts/PolarArea/MonochromePolar";
 
 function App() {
 
@@ -89,6 +91,10 @@ function App() {
         <CardChart name='Simple Donut'><SimpleDonut /></CardChart>
         <CardChart name='Monochrome Pie'><MonochromePie /></CardChart>
         <CardChart name='Gradient Donut'><GradientDonut /></CardChart>
+      </SectionCharts>
+      <SectionCharts title='Mixed'>
+        <CardChart name='Basic Polar'><BasicPolar /></CardChart>
+        <CardChart name='Monochrome Polar'><MonochromePolar /></CardChart>
       </SectionCharts>
     </main>
   );
