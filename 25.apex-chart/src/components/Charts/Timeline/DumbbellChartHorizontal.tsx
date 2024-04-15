@@ -39,7 +39,7 @@ export default function DumbbellChartHorizontal() {
 
   const chartOptions: ApexOptions = {
     chart: {
-      height: 390,
+      height: 350,
       type: 'rangeBar',
       zoom: {
         enabled: false
@@ -90,7 +90,7 @@ export default function DumbbellChartHorizontal() {
       options={chartOptions}
       series={series}
       type="rangeBar"
-      height={390}
+      height={350}
     />
   );
 }

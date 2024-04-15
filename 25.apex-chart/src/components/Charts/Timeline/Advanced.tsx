@@ -134,7 +134,7 @@ export default function Advanced() {
 
   const chartOptions: ApexOptions = {
     chart: {
-      height: 450,
+      height: 350,
       type: 'rangeBar'
     },
     plotOptions: {
@@ -164,7 +164,7 @@ export default function Advanced() {
       options={chartOptions}
       series={series}
       type="rangeBar"
-      height={450}
+      height={350}
     />
   );
 }

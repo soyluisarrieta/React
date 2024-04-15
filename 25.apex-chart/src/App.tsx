@@ -31,6 +31,10 @@ import Advanced from "./components/Charts/Timeline/Advanced";
 import MultipleSeriesGroupRows from "./components/Charts/Timeline/MultipleSeriesGroupRows";
 import DumbbellChartHorizontal from "./components/Charts/Timeline/DumbbellChartHorizontal";
 import DumbbellChartVertical from "./components/Charts/Column/DumbbellChartVertical";
+import SimplePie from "./components/Charts/PieDonuts/SimplePie";
+import SimpleDonut from "./components/Charts/PieDonuts/SimpleDonut";
+import MonochromePie from "./components/Charts/PieDonuts/MonochromePie";
+import GradientDonut from "./components/Charts/PieDonuts/GradientDonut";
 
 function App() {
 
@@ -79,6 +83,12 @@ function App() {
         <CardChart name='Advanced'><Advanced /></CardChart>
         <CardChart name='Multiple Series Group Rows'><MultipleSeriesGroupRows /></CardChart>
         <CardChart name='DumbbellChartHorizontal'><DumbbellChartHorizontal /></CardChart>
+      </SectionCharts>
+      <SectionCharts title='Pie / Donuts'>
+        <CardChart name='Simple Pie'><SimplePie /></CardChart>
+        <CardChart name='Simple Donut'><SimpleDonut /></CardChart>
+        <CardChart name='Monochrome Pie'><MonochromePie /></CardChart>
+        <CardChart name='Gradient Donut'><GradientDonut /></CardChart>
       </SectionCharts>
     </main>
   );
