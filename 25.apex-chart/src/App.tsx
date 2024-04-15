@@ -21,6 +21,9 @@ import GroupedStackedBars from "./components/Charts/Bar/GroupedStackedBars";
 import BarWithNegativeValues from "./components/Charts/Bar/BarWithNegativeValues";
 import ReversedBarChart from "./components/Charts/Bar/ReversedBarChart";
 import CustomDataLabels from "./components/Charts/Bar/CustomDataLabels";
+import LineAndColumn from "./components/Charts/Mixed/LineAndColumn";
+import LineAndArea from "./components/Charts/Mixed/LineAndArea";
+import LineColumnArea from "./components/Charts/Mixed/LineColumnArea";
 
 function App() {
 
@@ -55,6 +58,11 @@ function App() {
         <CardChart name='Bar With Negative Values'><BarWithNegativeValues /></CardChart>
         <CardChart name='Reversed Bar Chart'><ReversedBarChart /></CardChart>
         <CardChart name='Custom Data Labels'><CustomDataLabels /></CardChart>
+      </SectionCharts>
+      <SectionCharts title='Mixed'>
+        <CardChart name='Line and Column'><LineAndColumn /></CardChart>
+        <CardChart name='Line and Area'><LineAndArea /></CardChart>
+        <CardChart name='Line Column Area'><LineColumnArea /></CardChart>
       </SectionCharts>
     </main>
   );
