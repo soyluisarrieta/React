@@ -48,7 +48,7 @@ export default function StackedBar() {
     },
     stroke: {
       width: 1,
-      colors: ['#111']
+      colors: ['#fff']
     },
     title: {
       text: 'Fiction Books Sales'

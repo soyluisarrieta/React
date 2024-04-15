@@ -39,7 +39,7 @@ export default function StackedCompleteBar() {
     },
     stroke: {
       width: 1,
-      colors: ['#111']
+      colors: ['#fff']
     },
     title: {
       text: '100% Stacked Bar'

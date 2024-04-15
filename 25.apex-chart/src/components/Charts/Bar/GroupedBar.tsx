@@ -35,7 +35,7 @@ export default function GroupedBar() {
     stroke: {
       show: true,
       width: 1,
-      colors: ['#111']
+      colors: ['#fff']
     },
     tooltip: {
       shared: true,

@@ -43,7 +43,7 @@ export default function LineWithDataLabels() {
     grid: {
       borderColor: '#e7e7e7',
       row: {
-        colors: ['#1f1f1f', 'transparent'], // takes an array which will be repeated on columns
+        colors: ['#f2f2f2', 'transparent'], // takes an array which will be repeated on columns
         opacity: 0.5
       },
     },

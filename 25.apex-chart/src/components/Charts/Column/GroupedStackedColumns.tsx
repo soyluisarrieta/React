@@ -33,7 +33,7 @@ export default function GroupedStackedColumns() {
     },
     stroke: {
       width: 1,
-      colors: ['#111']
+      colors: ['#fff']
     },
     dataLabels: {
       formatter: (val:number) => {

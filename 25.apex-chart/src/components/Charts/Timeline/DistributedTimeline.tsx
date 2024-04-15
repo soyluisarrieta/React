@@ -85,7 +85,7 @@ export default function DistributedTimeline() {
     },
     grid: {
       row: {
-        colors: ['#111', '#222'],
+        colors: ['#f2f2f2', '#fff'],
         opacity: 1
       }
     }

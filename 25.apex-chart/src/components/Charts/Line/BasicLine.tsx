@@ -29,7 +29,7 @@ export default function BasicLine() {
     },
     grid: {
       row: {
-        colors: ['#1f1f1f', 'transparent'],
+        colors: ['#f2f2f2', 'transparent'],
         opacity: 0.5
       },
     },
