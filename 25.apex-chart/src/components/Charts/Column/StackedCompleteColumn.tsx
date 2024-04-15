@@ -1,7 +1,7 @@
 import { ApexOptions } from "apexcharts";
 import ApexChartComponent from "../../ApexChart";
 
-export default function StackedBar() {
+export default function StackedCompleteColumn() {
   const series = [
     {
       name: 'PRODUCT A',
