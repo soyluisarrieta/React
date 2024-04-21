@@ -1,76 +1,100 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
-  @layer base {
-    :root {
-      --background: 0 0% 100%;
-      --foreground: 240 10% 3.9%;
-
-      --card: 0 0% 100%;
-      --card-foreground: 240 10% 3.9%;
-
-      --popover: 0 0% 100%;
-      --popover-foreground: 240 10% 3.9%;
-
-      --primary: 240 5.9% 10%;
-      --primary-foreground: 0 0% 98%;
-
-      --secondary: 240 4.8% 95.9%;
-      --secondary-foreground: 240 5.9% 10%;
-
-      --muted: 240 4.8% 95.9%;
-      --muted-foreground: 240 3.8% 46.1%;
-
-      --accent: 240 4.8% 95.9%;
-      --accent-foreground: 240 5.9% 10%;
-
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 0 0% 98%;
-
-      --border: 240 5.9% 90%;
-      --input: 240 5.9% 90%;
-      --ring: 240 10% 3.9%;
-
-      --radius: 0.5rem;
-    }
-
-    .dark {
-      --background: 240 10% 3.9%;
-      --foreground: 0 0% 98%;
-
-      --card: 240 10% 3.9%;
-      --card-foreground: 0 0% 98%;
-
-      --popover: 240 10% 3.9%;
-      --popover-foreground: 0 0% 98%;
-
-      --primary: 0 0% 98%;
-      --primary-foreground: 240 5.9% 10%;
-
-      --secondary: 240 3.7% 15.9%;
-      --secondary-foreground: 0 0% 98%;
-
-      --muted: 240 3.7% 15.9%;
-      --muted-foreground: 240 5% 64.9%;
-
-      --accent: 240 3.7% 15.9%;
-      --accent-foreground: 0 0% 98%;
-
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 0 0% 98%;
-
-      --border: 240 3.7% 15.9%;
-      --input: 240 3.7% 15.9%;
-      --ring: 240 4.9% 83.9%;
-    }
+@layer base {
+  /* Lato */
+  @font-face {
+    font-family: "Lato";
+    font-weight: 100;
+    font-style: normal;
+    src: url("./fonts/lato/Lato-Light.woff2");
+  }
+  @font-face {
+    font-family: "Lato";
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+    src: url("./fonts/lato/Lato-LightItalic.woff2");
+  }
+  @font-face {
+    font-family: "Lato";
+    font-weight: 400;
+    font-style: normal;
+    src: url("./fonts/lato/Lato-Regular.woff2");
+  }
+  @font-face {
+    font-family: "Lato";
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+    src: url("./fonts/lato/Lato-Italic.woff2");
+  }
+  @font-face {
+    font-family: "Lato";
+    font-weight: 900;
+    font-style: normal;
+    src: url("./fonts/lato/Lato-Bold.woff2");
+  }
+  @font-face {
+    font-family: "Lato";
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+    src: url("./fonts/lato/Lato-BoldItalic.woff2");
+  }
+  
+  :root {
+    --background: 238 64% 98%;
+    --foreground: 253 58% 0%;
+    --muted: 253 7% 87%;
+    --muted-foreground: 253 13% 37%;
+    --popover: 253 44% 98%;
+    --popover-foreground: 253 58% 0%;
+    --card: 253 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --border: 192 11.63% 91.57%;
+    --input: 220 13% 91%;
+    --primary: 10.91 90% 57%;
+    --primary-foreground: 253 91% 98%;
+    --secondary: 253 5% 89%;
+    --secondary-foreground: 253 5% 29%;
+    --accent: 253 12% 82%;
+    --accent-foreground: 253 12% 22%;
+    --destructive: 0 83.12% 58.99%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 10.91 90% 57%;
+    --radius: 0.5rem;
   }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
+  .dark {
+    --background: 224 11% 7%;
+    --foreground: 0 0% 98.82%;
+    --muted: 212.73 7.23% 20.56%;
+    --muted-foreground: 214.29 6.25% 43.92%;
+    --popover: 204 8.77% 14%;
+    --popover-foreground: 0 0% 98.82%;
+    --card: 204 8.77% 11.18%;
+    --card-foreground: 0 0% 98.82%;
+    --border: 217.5 10.26% 15.29%;
+    --input: 210 6.78% 23.14%;
+    --primary: 10.91 84.62% 56.67%;
+    --primary-foreground: 0 0% 98.82%;
+    --secondary: 0 0% 98.82%;
+    --secondary-foreground: 210 11.11% 7.06%;
+    --accent: 214.29 6.23% 28.72%;
+    --accent-foreground: 214.29 8.84% 78.62%;
+    --destructive: 360 84.62% 56.67%;
+    --destructive-foreground: 0 0% 98.82%;
+    --ring: 10.91 90% 57%;
   }
+  
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

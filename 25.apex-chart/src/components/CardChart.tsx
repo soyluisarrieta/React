@@ -5,8 +5,8 @@ interface Props {
 
 export default function CardChart({name, children}: Props) {
   return (
-    <div style={{padding: 20, backgroundColor: '#fff', border: 'solid 1px #fbfbfb', borderRadius: 7}}>
-      <h3 style={{margin: 0, marginBottom: 10, fontSize: 27, fontWeight: 500}}>
+    <div className="p-5 bg-card rounded-lg">
+      <h3 className="mb-4 text-2xl text-muted-foreground font-medium">
         {name}
       </h3>
       <hr style={{marginBottom: 25, opacity: 0.3}} />

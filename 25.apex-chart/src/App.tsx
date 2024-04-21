@@ -46,8 +46,8 @@ import SemiCircleGauge from "./components/Charts/RadialBar/SemiCircleGauge";
 
 function App() {
   return (
-    <main className="dark bg-background">
-      <h1 className="text-blue-500 font-bold text-4xl">Apex Chart</h1>
+    <main className="dark bg-background p-5">
+      <h1 className="text-foreground font-bold text-4xl">Apex Chart</h1>
       <SectionCharts title='Area'>
         <CardChart name='Basic Area'><BasicArea /></CardChart>
         <CardChart name='Spline'><SplineArea /></CardChart>
