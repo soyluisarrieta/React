@@ -1,6 +1,6 @@
 import { Icon } from "leaflet";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 // Coordenadas centrales y nivel de zoom inicial del mapa
 const center = [0.8180362, -77.5892683];
@@ -73,7 +73,9 @@ export default function App() {
             key={i} 
             position={marker.geocode}
             icon={markerIcon}
-          ></Marker>
+          >
+            <Popup><strong>{marker.popUp}</strong></Popup>
+          </Marker>
         ))}
       </MapContainer>
     ),
