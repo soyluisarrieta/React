@@ -1,9 +1,23 @@
+import { Icon } from "leaflet";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
 // Coordenadas centrales y nivel de zoom inicial del mapa
 const center = [0.8180362, -77.5892683];
 const zoom = 15;
+
+const markers = [
+  { geocode: [0.8180362, -77.5892683], popUp: "Paylus Estudio 1"},
+  { geocode: [0.8080362, -77.5692683], popUp: "Paylus Estudio 2"},
+  { geocode: [0.8184362, -77.5895686], popUp: "Paylus Estudio 3"},
+  { geocode: [0.8180962, -77.5992683], popUp: "Paylus Estudio 3"},
+]
+
+const markerIcon = new Icon({
+  iconUrl: './paylus-estudio.png',
+  iconSize: [38,38],
+  className: 'paylus-marker'
+})
 
 // Comp: muestra la posición actual del mapa
 function DisplayPosition({ map }) {
@@ -53,6 +67,14 @@ export default function App() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+        {markers.map((marker, i) => (
+          <Marker 
+            key={i} 
+            position={marker.geocode}
+            icon={markerIcon}
+          ></Marker>
+        ))}
       </MapContainer>
     ),
     [], // Dependencias vacías para memoizar solo una vez
