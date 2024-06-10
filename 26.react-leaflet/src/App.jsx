@@ -1,5 +1,7 @@
+import { ExternalState } from "./components/leaflet/ExternalState";
+
 export default function App() {
   return (
-    <div>App</div>
+    <ExternalState />
   )
 }
