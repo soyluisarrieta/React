@@ -1,21 +1,22 @@
 import { Icon } from "leaflet";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import MarkerClusterGroup from "react-leaflet-cluster";
 
 // Coordenadas centrales y nivel de zoom inicial del mapa
 const center = [0.8180362, -77.5892683];
 const zoom = 15;
 
 const markers = [
-  { geocode: [0.8180362, -77.5892683], popUp: "Paylus Estudio 1"},
-  { geocode: [0.8080362, -77.5692683], popUp: "Paylus Estudio 2"},
-  { geocode: [0.8184362, -77.5895686], popUp: "Paylus Estudio 3"},
-  { geocode: [0.8180962, -77.5992683], popUp: "Paylus Estudio 3"},
+  { geocode: [0.8180362, -77.5892683], popUp: "Paylus Estudio 1" },
+  { geocode: [0.8080362, -77.5692683], popUp: "Paylus Estudio 2" },
+  { geocode: [0.8184362, -77.5895686], popUp: "Paylus Estudio 3" },
+  { geocode: [0.8180962, -77.5992683], popUp: "Paylus Estudio 3" },
 ]
 
 const markerIcon = new Icon({
   iconUrl: './paylus-estudio.png',
-  iconSize: [38,38],
+  iconSize: [38, 38],
   className: 'paylus-marker'
 })
 
@@ -68,15 +69,17 @@ export default function App() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {markers.map((marker, i) => (
-          <Marker 
-            key={i} 
-            position={marker.geocode}
-            icon={markerIcon}
-          >
-            <Popup><strong>{marker.popUp}</strong></Popup>
-          </Marker>
-        ))}
+        <MarkerClusterGroup>
+          {markers.map((marker, i) => (
+            <Marker
+              key={i}
+              position={marker.geocode}
+              icon={markerIcon}
+            >
+              <Popup><strong>{marker.popUp}</strong></Popup>
+            </Marker>
+          ))}
+        </MarkerClusterGroup>
       </MapContainer>
     ),
     [], // Dependencias vacías para memoizar solo una vez
