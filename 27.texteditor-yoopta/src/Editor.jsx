@@ -17,7 +17,7 @@ export default function Editor() {
     <YooptaEditor
       editor={editor}
       plugins={plugins}
-      placeholder="Type something"
+      placeholder="Escribe aquí..."
       value={value}
       onChange={onChange}
     />
