@@ -1,12 +1,13 @@
 import { useMemo, useState } from "react";
 import YooptaEditor, { createYooptaEditor } from "@yoopta/editor";
 import Paragraph from "@yoopta/paragraph";
+import Link from "@yoopta/link";
 import LinkTool, { DefaultLinkToolRender } from '@yoopta/link-tool';
 import ActionMenu, { DefaultActionMenuRender } from '@yoopta/action-menu-list';
 import Toolbar, { DefaultToolbarRender } from '@yoopta/toolbar';
 import { Bold, Italic, CodeMark, Underline, Strike, Highlight } from '@yoopta/marks';
 
-const plugins = [Paragraph]
+const plugins = [Paragraph, Link]
 
 const MARKS = [Bold, Italic, CodeMark, Underline, Strike, Highlight];
 const TOOLS = {
