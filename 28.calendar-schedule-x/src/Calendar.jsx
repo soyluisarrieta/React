@@ -1,11 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useCalendarApp, ScheduleXCalendar } from '@schedule-x/react'
-import {
-  createViewDay,
-  createViewMonthAgenda,
-  createViewMonthGrid,
-  createViewWeek,
-} from '@schedule-x/calendar'
+import { createViewDay, createViewMonthAgenda, createViewMonthGrid, createViewWeek, } from '@schedule-x/calendar'
 import { createEventsServicePlugin } from '@schedule-x/events-service'
 import { createDragAndDropPlugin } from '@schedule-x/drag-and-drop'
 import { createResizePlugin } from '@schedule-x/resize'
@@ -13,9 +8,10 @@ import { createEventModalPlugin } from '@schedule-x/event-modal'
 import { createCalendarControlsPlugin } from '@schedule-x/calendar-controls'
 import { createEventRecurrencePlugin } from '@schedule-x/event-recurrence'
 import { createScrollControllerPlugin } from '@schedule-x/scroll-controller'
+import { createCurrentTimePlugin } from '@schedule-x/current-time'
  
 import '@schedule-x/theme-default/dist/index.css'
-import { createCurrentTimePlugin } from '@schedule-x/current-time'
+import './calendar.css'
 
 function Calendar() {
   const eventsService = useState(() => createEventsServicePlugin())[0]

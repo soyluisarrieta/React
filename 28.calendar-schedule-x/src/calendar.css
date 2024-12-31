@@ -1,0 +1,62 @@
+:root {
+  --sx-color-primary: #e54;
+  --sx-color-on-primary: #ffffff;
+  --sx-color-primary-container: #ebf5fb;
+  --sx-color-on-primary-container: #1a5276;
+  --sx-color-secondary: #2ecc71;
+  --sx-color-on-secondary: #ffffff;
+  --sx-color-secondary-container: #e8f8f5;
+  --sx-color-on-secondary-container: #196f3d;
+  --sx-color-tertiary: #e74c3c;
+  --sx-color-on-tertiary: #ffffff;
+  --sx-color-tertiary-container: #fdedec;
+  --sx-color-on-tertiary-container: #943126;
+  --sx-color-surface: #ffffff;
+  --sx-color-surface-dim: #f4f6f7;
+  --sx-color-surface-bright: #ffffff;
+  --sx-color-on-surface: #2c3e50;
+  --sx-color-surface-container: #f8f9f9;
+  --sx-color-surface-container-low: #fbfcfc;
+  --sx-color-surface-container-high: #f2f3f4;
+  --sx-color-background: #ffffff;
+  --sx-color-on-background: #2c3e50;
+  --sx-color-outline: #95a5a6;
+  --sx-color-outline-variant: #bdc3c7;
+  --sx-color-shadow: #000000;
+  --sx-color-surface-tint: #3498db;
+  --sx-color-neutral: var(--sx-color-outline);
+  --sx-color-neutral-variant: var(--sx-color-outline-variant);
+
+  --sx-internal-color-gray-ripple-background: #ecf0f1;
+  --sx-internal-color-light-gray: #f9f9f9;
+  --sx-internal-color-text: #2c3e50;
+}
+
+.is-dark {
+  --sx-color-primary: #e54;
+  --sx-color-on-primary: #ffffff;
+  --sx-color-primary-container: #2a2d33;
+  --sx-color-on-primary-container: #dbeafe;
+  --sx-color-secondary: #4ade80;
+  --sx-color-on-secondary: #052e16;
+  --sx-color-secondary-container: #16a34a;
+  --sx-color-on-secondary-container: #bbf7d0;
+  --sx-color-tertiary: #f87171;
+  --sx-color-on-tertiary: #ffffff;
+  --sx-color-tertiary-container: #dc2626;
+  --sx-color-on-tertiary-container: #fee2e2;
+  --sx-color-surface: #18181b;
+  --sx-color-surface-dim: #18181b;
+  --sx-color-surface-bright: #27272a;
+  --sx-color-on-surface: #fafafa;
+  --sx-color-surface-container: #27272a;
+  --sx-color-surface-container-low: #1f1f23;
+  --sx-color-surface-container-high: #323238;
+  --sx-color-background: #1d1d1d;
+  --sx-color-on-background: #fafafa;
+  --sx-color-outline: #52525b;
+  --sx-color-outline-variant: #3f3f46;
+  --sx-color-shadow: #000000;
+  --sx-color-surface-tint: #3b82f6;
+  --sx-internal-color-text: #fafafa;
+}
