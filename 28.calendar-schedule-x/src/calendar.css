@@ -60,3 +60,16 @@
   --sx-color-surface-tint: #3b82f6;
   --sx-internal-color-text: #fafafa;
 }
+
+.sx__time-grid-day {
+  position: relative;
+}
+
+.sx__time-grid-event-resize-handle {
+  height: 50%;
+  max-height: 8px;
+}
+
+.sx__time-grid-event.sx__event {
+  padding-bottom: 0;
+}
