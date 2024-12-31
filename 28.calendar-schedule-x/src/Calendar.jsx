@@ -11,6 +11,7 @@ import { createDragAndDropPlugin } from '@schedule-x/drag-and-drop'
 import { createResizePlugin } from '@schedule-x/resize'
 import { createEventModalPlugin } from '@schedule-x/event-modal'
 import { createCalendarControlsPlugin } from '@schedule-x/calendar-controls'
+import { createEventRecurrencePlugin } from '@schedule-x/event-recurrence'
  
 import '@schedule-x/theme-default/dist/index.css'
 
@@ -21,8 +22,29 @@ function Calendar() {
   const calendar = useCalendarApp({
     locale: 'es-ES',
     isDark: true,
-    views: [createViewDay(), createViewWeek(), createViewMonthGrid(), createViewMonthAgenda()],
-    plugins: [eventsService, calendarControls, createEventModalPlugin(), createDragAndDropPlugin(), createResizePlugin()]
+    views: [
+      createViewDay(), 
+      createViewWeek(), 
+      createViewMonthGrid(), 
+      createViewMonthAgenda()],
+    plugins: [
+      eventsService, 
+      calendarControls, 
+      createEventModalPlugin(), 
+      createDragAndDropPlugin(), 
+      createResizePlugin(),
+      createEventRecurrencePlugin()
+    ],
+    events: [
+      {
+        id: 123,
+        title: 'Evento recurrente',
+        description: 'Evento recurrente a partir del 10 de enero, de 2pm hasta las 3pm, fecuencia semanal, cada 2 semanas, los días lunes y miércoles, hasta el 19 de febrero.',
+        start: '2025-01-10 14:00',
+        end: '2025-01-10 15:00',
+        rrule: 'FREQ=WEEKLY;INTERVAL=2;BYDAY=MO,WE;UNTIL=20250219T235959',
+      }
+    ]
   })
  
   useEffect(() => {
@@ -34,7 +56,7 @@ function Calendar() {
   calendar.eventsService.add({
     title: 'Event 1',
     description: 'This is a test event 1',
-    start: '2024-12-30',
+    start: '2025-11-30',
     end: '2025-01-01',
     id: 1
   })
