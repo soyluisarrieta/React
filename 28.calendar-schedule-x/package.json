@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@schedule-x/events-service": "^2.12.1",
+    "@schedule-x/react": "^2.12.1",
+    "@schedule-x/theme-default": "^2.12.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

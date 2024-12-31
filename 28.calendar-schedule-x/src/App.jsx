@@ -1,5 +1,10 @@
+import Calendar from "./Calendar";
+
 export default function App() {
   return (
-    <div>App</div>
+    <div>
+      <h1>Calendar</h1>
+      <Calendar />
+    </div>
   )
 }
