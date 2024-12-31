@@ -15,13 +15,14 @@ function Calendar() {
  
   const calendar = useCalendarApp({
     locale: 'es-ES',
+    isDark: true,
     views: [createViewDay(), createViewWeek(), createViewMonthGrid(), createViewMonthAgenda()],
     events: [
       {
         id: '1',
         title: 'Event 1',
-        start: '2023-12-16',
-        end: '2023-12-16',
+        start: '2025-01-01',
+        end: '2025-01-03',
       },
     ],
     plugins: [eventsService]
