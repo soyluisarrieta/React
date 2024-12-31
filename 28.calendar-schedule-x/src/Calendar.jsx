@@ -19,6 +19,16 @@ function Calendar({ darkMode }) {
   const calendarControls = useState(() => createCalendarControlsPlugin())[0]
   const scrollController = useState(() => createScrollControllerPlugin({initialScroll: '07:50'}))[0]
 
+  const addEvent = (calendar, dateTime) => {
+    const totalEvents = eventsService.getAll().length
+    eventsService.add({
+      id: totalEvents + 1,
+      title: '(Sin título)',
+      start: dateTime,
+      end: dateTime,
+    })
+  }
+
   const calendar = useCalendarApp({
     // Configuración del calendario
     locale: 'es-ES',
@@ -131,14 +141,17 @@ function Calendar({ darkMode }) {
    
       onClickDate(date) {
         console.log('onClickDate', date)
+        addEvent(date, date)
       },
    
       onClickDateTime(dateTime) {
         console.log('onClickDateTime', dateTime)
+        addEvent(dateTime, dateTime)
       },
    
       onClickAgendaDate(date) {
         console.log('onClickAgendaDate', date)
+        addEvent(date, date)
       },
    
       onDoubleClickAgendaDate(date) {
@@ -180,10 +193,6 @@ function Calendar({ darkMode }) {
   useEffect(() => {
     eventsService.getAll()
     calendarControls.setView('week')
-
-    setTimeout(() => {
-      scrollController.scrollTo('13:00')
-    }, 1000)
   }, [])
 
   useEffect(() => {
