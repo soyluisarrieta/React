@@ -15,6 +15,7 @@ import { createEventRecurrencePlugin } from '@schedule-x/event-recurrence'
 import { createScrollControllerPlugin } from '@schedule-x/scroll-controller'
  
 import '@schedule-x/theme-default/dist/index.css'
+import { createCurrentTimePlugin } from '@schedule-x/current-time'
 
 function Calendar() {
   const eventsService = useState(() => createEventsServicePlugin())[0]
@@ -36,7 +37,8 @@ function Calendar() {
       createEventModalPlugin(), 
       createDragAndDropPlugin(), 
       createResizePlugin(),
-      createEventRecurrencePlugin()
+      createEventRecurrencePlugin(),
+      createCurrentTimePlugin()
     ],
     events: [
       {
