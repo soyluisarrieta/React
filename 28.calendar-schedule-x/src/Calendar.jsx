@@ -14,6 +14,7 @@ function Calendar() {
   const eventsService = useState(() => createEventsServicePlugin())[0]
  
   const calendar = useCalendarApp({
+    locale: 'es-ES',
     views: [createViewDay(), createViewWeek(), createViewMonthGrid(), createViewMonthAgenda()],
     events: [
       {
