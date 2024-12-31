@@ -268,10 +268,23 @@ function Calendar({ darkMode }) {
     }
     document.addEventListener('click', handleClickOutside)
 
+    const handleDeleteEvent = (e) => {
+      if (e.key === 'Delete' && selectedDate) {
+        if (confirm('¿Estás seguro de que deseas eliminar este evento?')) {
+          calendar.eventsService.remove(selectedDate)
+          setSelectedDate(null)
+          const eventModal = document.querySelector('.sx__event-modal.is-open')
+          eventModal && eventModal.remove()
+        }
+      }
+    }
+    document.addEventListener('keydown', handleDeleteEvent)
     return () => {
       document.removeEventListener('click', handleClickOutside)
+      document.removeEventListener('keydown', handleDeleteEvent)
     }
-  }, [selectedDate])
+  }, [selectedDate, calendar])
+
   return (
     <div id='calendar'>
       <ScheduleXCalendar calendarApp={calendar} customComponents={{eventModal: CustomEventModal}} />
