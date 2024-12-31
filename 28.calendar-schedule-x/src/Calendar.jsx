@@ -12,13 +12,15 @@ import { createResizePlugin } from '@schedule-x/resize'
 import { createEventModalPlugin } from '@schedule-x/event-modal'
 import { createCalendarControlsPlugin } from '@schedule-x/calendar-controls'
 import { createEventRecurrencePlugin } from '@schedule-x/event-recurrence'
+import { createScrollControllerPlugin } from '@schedule-x/scroll-controller'
  
 import '@schedule-x/theme-default/dist/index.css'
 
 function Calendar() {
   const eventsService = useState(() => createEventsServicePlugin())[0]
   const calendarControls = useState(() => createCalendarControlsPlugin())[0]
- 
+  const scrollController = useState(() => createScrollControllerPlugin({initialScroll: '07:50'}))[0]
+
   const calendar = useCalendarApp({
     locale: 'es-ES',
     isDark: true,
@@ -30,6 +32,7 @@ function Calendar() {
     plugins: [
       eventsService, 
       calendarControls, 
+      scrollController,
       createEventModalPlugin(), 
       createDragAndDropPlugin(), 
       createResizePlugin(),
@@ -49,7 +52,11 @@ function Calendar() {
  
   useEffect(() => {
     eventsService.getAll()
-    calendarControls.setView('month-grid')
+    calendarControls.setView('day')
+
+    setTimeout(() => {
+      scrollController.scrollTo('04:00')
+    }, 1000)
   }, [])
 
   // Agrega un evento
