@@ -18,14 +18,15 @@ function Calendar({ darkMode }) {
   const eventsService = useState(() => createEventsServicePlugin())[0]
   const calendarControls = useState(() => createCalendarControlsPlugin())[0]
   const scrollController = useState(() => createScrollControllerPlugin({initialScroll: '07:50'}))[0]
+  const [selectedDate, setSelectedDate] = useState(null)
 
-  const addEvent = (calendar, dateTime) => {
+  const addEvent = (dateStart, dateEnd) => {
     const totalEvents = eventsService.getAll().length
     eventsService.add({
       id: totalEvents + 1,
       title: '(Sin título)',
-      start: dateTime,
-      end: dateTime,
+      start: dateStart,
+      end: dateEnd,
     })
   }
 
@@ -130,9 +131,10 @@ function Calendar({ darkMode }) {
       },
    
       onEventClick(calendarEvent) {
+        console.log('onEventClick', calendarEvent)
         const time = calendarEvent.start.split(' ')[1]
         time && scrollController.scrollTo(time)
-        console.log('onEventClick', calendarEvent)
+        setSelectedDate(calendarEvent.id)
       },
    
       onDoubleClickEvent(calendarEvent) {
@@ -247,7 +249,29 @@ function Calendar({ darkMode }) {
     // Elimina un evento
     calendar.eventsService.remove(2)
   },[])
- 
+
+  useEffect(() => {
+    const allEvents = document.querySelectorAll('#calendar .sx__event')
+    allEvents.forEach(event => event.style.filter = 'brightness(1)')
+
+    if (selectedDate) {
+      const selectedEvent = document.querySelector(`#calendar .sx__event[data-event-id="${selectedDate}"]`)
+      if (selectedEvent) {
+        selectedEvent.style.filter = 'brightness(1.5)'
+      }
+    }
+
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.sx__event')) {
+        setSelectedDate(null)
+      }
+    }
+    document.addEventListener('click', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [selectedDate])
   return (
     <div id='calendar'>
       <ScheduleXCalendar calendarApp={calendar} customComponents={{eventModal: CustomEventModal}} />
