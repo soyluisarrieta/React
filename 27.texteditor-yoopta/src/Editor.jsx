@@ -7,9 +7,20 @@ import ActionMenu, { DefaultActionMenuRender } from '@yoopta/action-menu-list';
 import Toolbar, { DefaultToolbarRender } from '@yoopta/toolbar';
 import { Bold, Italic, CodeMark, Underline, Strike, Highlight } from '@yoopta/marks';
 
-const plugins = [Paragraph, Link]
+// Plugins
+const plugins = [
+  Paragraph.extend({ options: { display: { 
+    title: 'Párrafo', 
+    description: 'Comience a escribir texto simple.' 
+  }}}), 
 
+  Link
+];
+
+// Marks
 const MARKS = [Bold, Italic, CodeMark, Underline, Strike, Highlight];
+
+// Tools
 const TOOLS = {
   Toolbar: {
     tool: Toolbar,
@@ -24,7 +35,6 @@ const TOOLS = {
     render: DefaultLinkToolRender,
   },
 };
-
 
 export default function Editor() {
   const editor = useMemo(() => createYooptaEditor(), [])
