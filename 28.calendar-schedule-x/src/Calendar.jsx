@@ -10,21 +10,24 @@ import { createEventsServicePlugin } from '@schedule-x/events-service'
 import { createDragAndDropPlugin } from '@schedule-x/drag-and-drop'
 import { createResizePlugin } from '@schedule-x/resize'
 import { createEventModalPlugin } from '@schedule-x/event-modal'
- 
+import { createCalendarControlsPlugin } from '@schedule-x/calendar-controls'
  
 import '@schedule-x/theme-default/dist/index.css'
+
 function Calendar() {
   const eventsService = useState(() => createEventsServicePlugin())[0]
+  const calendarControls = useState(() => createCalendarControlsPlugin())[0]
  
   const calendar = useCalendarApp({
     locale: 'es-ES',
     isDark: true,
     views: [createViewDay(), createViewWeek(), createViewMonthGrid(), createViewMonthAgenda()],
-    plugins: [eventsService, createEventModalPlugin(), createDragAndDropPlugin(), createResizePlugin()]
+    plugins: [eventsService, calendarControls, createEventModalPlugin(), createDragAndDropPlugin(), createResizePlugin()]
   })
  
   useEffect(() => {
     eventsService.getAll()
+    calendarControls.setView('month-grid')
   }, [])
 
   // Agrega un evento
