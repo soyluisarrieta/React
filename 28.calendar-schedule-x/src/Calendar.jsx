@@ -71,6 +71,37 @@ function Calendar({ darkMode }) {
         },
       },
     },
+
+    // Eventos de fondo
+    backgroundEvents: [
+      {
+        title: 'Out of office',
+        start: '2025-01-03',
+        end: '2025-01-03',
+        style: {
+          backgroundImage: 'repeating-linear-gradient(45deg, #ccc, #ccc 5px, transparent 5px, transparent 10px)',
+          opacity: 0.5,
+        },
+      },
+      {
+        title: 'Out of office',
+        start: '2025-01-02 00:00',
+        end: '2025-01-02 02:00',
+        style: {
+          background: 'linear-gradient(45deg, #f91c45, #1c7df9)',
+          opacity: 0.5,
+        },
+      },
+      {
+        title: 'Holiday',
+        start: '2025-01-05',
+        end: '2025-01-07',
+        style: {
+          backgroundImage: 'repeating-linear-gradient(45deg, #1cf9b0, #1cf9b0 5px, transparent 5px, transparent 10px)',
+          opacity: 0.5,
+        },
+      }
+    ]
   })
  
   useEffect(() => {
