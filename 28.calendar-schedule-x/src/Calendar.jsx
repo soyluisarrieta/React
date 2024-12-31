@@ -44,20 +44,20 @@ function Calendar() {
       {
         id: 123,
         title: 'Evento recurrente',
-        description: 'Evento recurrente a partir del 10 de enero, de 2pm hasta las 3pm, fecuencia semanal, cada 2 semanas, los días lunes y miércoles, hasta el 19 de febrero.',
-        start: '2025-01-10 14:00',
-        end: '2025-01-10 15:00',
-        rrule: 'FREQ=WEEKLY;INTERVAL=2;BYDAY=MO,WE;UNTIL=20250219T235959',
+        description: 'Evento recurrente a partir del 31 de diciembre de 2025, de 2pm hasta las 3pm, fecuencia semanal, cada 2 semanas, los días lunes y miércoles, hasta el 19 de febrero de 2025.',
+        start: '2024-12-31 14:00',
+        end: '2024-12-31 15:00',
+        rrule: 'FREQ=WEEKLY;INTERVAL=2;BYDAY=TU,FR;UNTIL=20250219T235959',
       }
     ]
   })
  
   useEffect(() => {
     eventsService.getAll()
-    calendarControls.setView('day')
+    calendarControls.setView('week')
 
     setTimeout(() => {
-      scrollController.scrollTo('04:00')
+      scrollController.scrollTo('13:00')
     }, 1000)
   }, [])
 
