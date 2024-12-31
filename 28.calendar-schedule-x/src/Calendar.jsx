@@ -7,6 +7,7 @@ import {
   createViewWeek,
 } from '@schedule-x/calendar'
 import { createEventsServicePlugin } from '@schedule-x/events-service'
+import { createDragAndDropPlugin } from '@schedule-x/drag-and-drop'
  
 import '@schedule-x/theme-default/dist/index.css'
  
@@ -25,7 +26,7 @@ function Calendar() {
         end: '2025-01-03',
       },
     ],
-    plugins: [eventsService]
+    plugins: [eventsService, createDragAndDropPlugin()]
   })
  
   useEffect(() => {
