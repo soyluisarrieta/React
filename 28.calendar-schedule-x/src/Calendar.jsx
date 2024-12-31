@@ -32,7 +32,7 @@ function Calendar() {
   }, [])
  
   return (
-    <div>
+    <div id='calendar'>
       <ScheduleXCalendar calendarApp={calendar} />
     </div>
   )
