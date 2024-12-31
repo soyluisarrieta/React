@@ -54,6 +54,23 @@ function Calendar({ darkMode }) {
         rrule: 'FREQ=WEEKLY;INTERVAL=2;BYDAY=TU,FR;UNTIL=20250219T235959'
       }
     ],
+
+    // Estilos de los calendarios
+    calendars: {
+      proyects: {
+        colorName: 'Proyectos',
+        lightColors: {
+          main: '#1c7df9',
+          container: '#d2e7ff',
+          onContainer: '#002859',
+        },
+        darkColors: {
+          main: '#c0dfff',
+          onContainer: '#dee6ff',
+          container: '#426aa2',
+        },
+      },
+    },
   })
  
   useEffect(() => {
@@ -86,6 +103,15 @@ function Calendar({ darkMode }) {
       start: '2025-01-02',
       end: '2025-01-03',
       id: 2
+    })
+
+    calendar.eventsService.add({
+      title: 'Event 3',
+      description: 'This is a test event 3',
+      start: '2024-12-31 06:00',
+      end: '2024-12-31 10:00',
+      calendarId: 'proyects',
+      id: 3
     })
     
     // Obtiene el evento por su id
