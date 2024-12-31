@@ -37,6 +37,22 @@ h1 {
   font-weight: 700;
 }
 
+.btn-darkmode {
+  width: 10rem;
+  display: block;
+  background-color: #474747;
+  color: #dadada;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+
+  &:active {
+    background-color: #373737;
+  }
+}
+
 #calendar {
   overflow: hidden;
 

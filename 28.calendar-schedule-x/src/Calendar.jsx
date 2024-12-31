@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useCalendarApp, ScheduleXCalendar } from '@schedule-x/react'
-import { createViewDay, createViewMonthAgenda, createViewMonthGrid, createViewWeek, } from '@schedule-x/calendar'
+import { createViewDay, createViewMonthAgenda, createViewMonthGrid, createViewWeek,} from '@schedule-x/calendar'
 import { createEventsServicePlugin } from '@schedule-x/events-service'
 import { createDragAndDropPlugin } from '@schedule-x/drag-and-drop'
 import { createResizePlugin } from '@schedule-x/resize'
@@ -13,19 +13,20 @@ import { createCurrentTimePlugin } from '@schedule-x/current-time'
 import '@schedule-x/theme-default/dist/index.css'
 import './calendar.css'
 
-function Calendar() {
+function Calendar({ darkMode }) {
   const eventsService = useState(() => createEventsServicePlugin())[0]
   const calendarControls = useState(() => createCalendarControlsPlugin())[0]
   const scrollController = useState(() => createScrollControllerPlugin({initialScroll: '07:50'}))[0]
 
   const calendar = useCalendarApp({
     locale: 'es-ES',
-    isDark: true,
+    isDark: darkMode,
     views: [
       createViewDay(), 
       createViewWeek(), 
       createViewMonthGrid(), 
-      createViewMonthAgenda()],
+      createViewMonthAgenda()
+    ],
     plugins: [
       eventsService, 
       calendarControls, 
@@ -56,6 +57,11 @@ function Calendar() {
       scrollController.scrollTo('13:00')
     }, 1000)
   }, [])
+
+  useEffect(() => {
+    const sxWrapper = document.querySelector('#calendar .sx__calendar-wrapper') ?? null
+    if (sxWrapper) sxWrapper.classList.toggle('is-dark', darkMode)
+  }, [darkMode])
 
   // Agrega un evento
   calendar.eventsService.add({
