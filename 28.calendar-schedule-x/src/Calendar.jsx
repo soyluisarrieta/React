@@ -9,9 +9,10 @@ import {
 import { createEventsServicePlugin } from '@schedule-x/events-service'
 import { createDragAndDropPlugin } from '@schedule-x/drag-and-drop'
 import { createResizePlugin } from '@schedule-x/resize'
+import { createEventModalPlugin } from '@schedule-x/event-modal'
+ 
  
 import '@schedule-x/theme-default/dist/index.css'
- 
 function Calendar() {
   const eventsService = useState(() => createEventsServicePlugin())[0]
  
@@ -24,10 +25,10 @@ function Calendar() {
         id: '1',
         title: 'Event 1',
         start: '2025-01-01',
-        end: '2025-01-03',
+        end: '2025-01-14',
       },
     ],
-    plugins: [eventsService, createDragAndDropPlugin(), createResizePlugin()]
+    plugins: [eventsService, createEventModalPlugin(), createDragAndDropPlugin(), createResizePlugin()]
   })
  
   useEffect(() => {
