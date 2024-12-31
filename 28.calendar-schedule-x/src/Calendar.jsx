@@ -101,7 +101,79 @@ function Calendar({ darkMode }) {
           opacity: 0.5,
         },
       }
-    ]
+    ],
+
+    // Manejadores de eventos
+    callbacks: {
+      onRangeUpdate(range) {
+        console.log('onRangeUpdate', range);
+      },
+   
+      onEventUpdate(updatedEvent) {
+        console.log('onEventUpdate', updatedEvent)
+      },
+   
+      onBeforeEventUpdate(oldEvent, newEvent, $app) {
+        console.log('onBeforeEventUpdate', {oldEvent, newEvent, $app});
+        return true
+      },
+   
+      onEventClick(calendarEvent) {
+        const time = calendarEvent.start.split(' ')[1]
+        time && scrollController.scrollTo(time)
+        console.log('onEventClick', calendarEvent)
+      },
+   
+      onDoubleClickEvent(calendarEvent) {
+        console.log('onDoubleClickEvent', calendarEvent)
+      },
+   
+      onClickDate(date) {
+        console.log('onClickDate', date)
+      },
+   
+      onClickDateTime(dateTime) {
+        console.log('onClickDateTime', dateTime)
+      },
+   
+      onClickAgendaDate(date) {
+        console.log('onClickAgendaDate', date)
+      },
+   
+      onDoubleClickAgendaDate(date) {
+        console.log('onDoubleClickAgendaDate', date) 
+      },
+   
+      onDoubleClickDate(date) {
+        console.log('onClickDate', date)
+      },
+   
+      onDoubleClickDateTime(dateTime) {
+        console.log('onDoubleClickDateTime', dateTime) 
+      },
+   
+      onClickPlusEvents(date) { // NO SÉ PARA QUÉ SIRVE
+        console.log('onClickPlusEvents', date) 
+      },
+   
+      onSelectedDateUpdate(date) {
+        console.log('onSelectedDateUpdate', date)
+      },
+   
+      isCalendarSmall($app) {
+        console.log('isCalendarSmall', $app);
+        return $app.elements.calendarWrapper?.clientWidth < 500
+      },
+   
+      beforeRender($app) {
+        const range = $app.calendarState.range.value
+        console.log('beforeRender', {start: range.start, end: range.end})
+      },
+   
+      onRender($app) {
+        console.log('onRender', $app)
+      },
+    },
   })
  
   useEffect(() => {
