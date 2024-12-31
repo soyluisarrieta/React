@@ -12,6 +12,7 @@ import { createCurrentTimePlugin } from '@schedule-x/current-time'
  
 import '@schedule-x/theme-default/dist/index.css'
 import './calendar.css'
+import CustomEventModal from './CustomEventModal'
 
 function Calendar({ darkMode }) {
   const eventsService = useState(() => createEventsServicePlugin())[0]
@@ -57,8 +58,8 @@ function Calendar({ darkMode }) {
 
     // Estilos de los calendarios
     calendars: {
-      proyects: {
-        colorName: 'Proyectos',
+      projects: {
+        colorName: 'projects',
         lightColors: {
           main: '#1c7df9',
           container: '#d2e7ff',
@@ -213,7 +214,7 @@ function Calendar({ darkMode }) {
       description: 'This is a test event 3',
       start: '2024-12-31 06:00',
       end: '2024-12-31 10:00',
-      calendarId: 'proyects',
+      calendarId: 'projects',
       id: 3
     })
     
@@ -240,7 +241,7 @@ function Calendar({ darkMode }) {
  
   return (
     <div id='calendar'>
-      <ScheduleXCalendar calendarApp={calendar} />
+      <ScheduleXCalendar calendarApp={calendar} customComponents={{eventModal: CustomEventModal}} />
     </div>
   )
 }
