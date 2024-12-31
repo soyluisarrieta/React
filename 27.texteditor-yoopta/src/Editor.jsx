@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import YooptaEditor, { createYooptaEditor } from "@yoopta/editor";
+import Accordion from "@yoopta/accordion";
 import Paragraph from "@yoopta/paragraph";
 import Link from "@yoopta/link";
 import LinkTool, { DefaultLinkToolRender } from '@yoopta/link-tool';
@@ -14,7 +15,8 @@ const plugins = [
     description: 'Comience a escribir texto simple.' 
   }}}), 
 
-  Link
+  Link,
+  Accordion 
 ];
 
 // Marks
